@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String?
+  email     String   @unique
+  password  String?
+  image     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  forms Form[]
+}
+
+model Form {
+  id          String   @id @default(cuid())
+  title       String   @default("Untitled Form")
+  description String   @default("")
+  published   Boolean  @default(false)
+  userId      String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user        User         @relation(fields: [userId], references: [id])
+  fields      Field[]
+  submissions Submission[]
+  channels    Channel[]
+}
+
+model Field {
+  id          String   @id @default(cuid())
+  formId      String
+  type        String
+  title       String   @default("")
+  description String   @default("")
+  required    Boolean  @default(false)
+  order       Int
+  options     String   @default("[]")
+  other       Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  form    Form     @relation(fields: [formId], references: [id], onDelete: Cascade)
+  answers Answer[]
+
+  @@index([formId])
+}
+
+model Channel {
+  id           String   @id @default(cuid())
+  formId       String
+  name         String
+  type         String   @default("other")
+  trackingCode String   @unique
+  createdAt    DateTime @default(now())
+
+  form        Form         @relation(fields: [formId], references: [id], onDelete: Cascade)
+  submissions Submission[]
+
+  @@index([formId])
+}
+
+model Submission {
+  id        String   @id @default(cuid())
+  formId    String
+  channelId String?
+  respondentEmail String?
+  createdAt DateTime @default(now())
+
+  form    Form     @relation(fields: [formId], references: [id], onDelete: Cascade)
+  channel Channel? @relation(fields: [channelId], references: [id])
+  answers Answer[]
+
+  @@index([formId])
+  @@index([channelId])
+}
+
+model Answer {
+  id           String @id @default(cuid())
+  submissionId String
+  fieldId      String
+  value        String @default("")
+
+  submission Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  field      Field      @relation(fields: [fieldId], references: [id], onDelete: Cascade)
+
+  @@index([submissionId])
+  @@index([fieldId])
+}
