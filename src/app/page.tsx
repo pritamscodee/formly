@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { HeroSection } from "@/components/hero-section";
 import { FeaturesSection } from "@/components/features-section";
 import { CTASection } from "@/components/cta-section";
+import { DemoSection } from "@/components/demo-section";
 import { SketchBackground } from "@/components/sketch-background";
 
 function LandingNav() {
@@ -222,6 +223,7 @@ export default function Home() {
       <main style={{ position: "relative", zIndex: 1 }}>
         <HeroSection />
         <FeaturesSection />
+        <DemoSection />
         <CTASection />
       </main>
       <LandingFooter />
