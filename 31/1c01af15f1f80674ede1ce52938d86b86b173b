@@ -1,0 +1,14 @@
+.gitignore
+  h_8dfeaef981cbe6 44-51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "311c01af15f1f80674ede1ce52938d86b86b173b",
+  "prompts": {},
+  "humans": {
+    "h_8dfeaef981cbe6": {
+      "author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  }
+}
