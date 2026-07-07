@@ -202,7 +202,8 @@ export function ShareDialog({ formId, formTitle, trigger }: ShareDialogProps) {
               <select
                 value={newChannelType}
                 onChange={(e) => setNewChannelType(e.target.value)}
-                className="rounded-lg border border-border bg-card px-2 text-xs text-foreground outline-none"
+                className="h-8 appearance-none rounded-lg border border-border bg-card px-2 pr-6 text-xs text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")", backgroundRepeat: "no-repeat", backgroundPosition: "right 6px center", backgroundSize: "14px" }}
               >
                 <option value="whatsapp">WhatsApp</option>
                 <option value="email">Email</option>
@@ -230,15 +231,15 @@ export function ShareDialog({ formId, formTitle, trigger }: ShareDialogProps) {
               No channels yet. Create one above to start tracking submissions.
             </p>
           ) : (
-            <div className="flex flex-col gap-2 max-h-80 overflow-y-auto">
+            <div className="flex flex-col gap-2">
               {channels.map((ch) => {
                 const link = channelLink(ch);
                 const msg = generateMessage(ch.name, link, ch.type);
                 return (
                   <div key={ch.id} className="rounded-xl border border-border p-3">
                     {/* Channel header */}
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2 min-w-0">
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-2">
+                      <div className="flex items-center gap-2 min-w-0 flex-1">
                         <span className="text-sm font-medium text-foreground truncate">{ch.name}</span>
                         <span className="shrink-0 rounded-full bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">
                           {CHANNEL_TYPE_LABELS[ch.type] || ch.type}
