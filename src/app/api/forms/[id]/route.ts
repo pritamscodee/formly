@@ -51,6 +51,10 @@ export async function PUT(
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
 
+    const existingFields = fields
+      ? (fields as { id: string }[]).filter((f) => !f.id.startsWith("new_")).map((f) => f.id)
+      : [];
+
     const updated = await prisma.form.update({
       where: { id },
       data: {
@@ -58,17 +62,32 @@ export async function PUT(
         description,
         fields: fields
           ? {
-              deleteMany: {},
-              create: fields.map((f: Record<string, unknown>) => ({
-                id: typeof f.id === "string" && f.id.startsWith("new_") ? undefined : (f.id as string),
-                type: f.type as string,
-                title: f.title as string,
-                description: f.description as string,
-                required: f.required as boolean,
-                order: f.order as number,
-                options: JSON.stringify(f.options || []),
-                other: f.other as boolean,
-              })),
+              deleteMany: { id: { notIn: existingFields } },
+              update: (fields as Record<string, unknown>[])
+                .filter((f) => !(f.id as string).startsWith("new_"))
+                .map((f) => ({
+                  where: { id: f.id as string },
+                  data: {
+                    type: f.type as string,
+                    title: f.title as string,
+                    description: f.description as string,
+                    required: f.required as boolean,
+                    order: f.order as number,
+                    options: JSON.stringify(f.options || []),
+                    other: f.other as boolean,
+                  },
+                })),
+              create: (fields as Record<string, unknown>[])
+                .filter((f) => (f.id as string).startsWith("new_"))
+                .map((f) => ({
+                  type: f.type as string,
+                  title: f.title as string,
+                  description: f.description as string,
+                  required: f.required as boolean,
+                  order: f.order as number,
+                  options: JSON.stringify(f.options || []),
+                  other: f.other as boolean,
+                })),
             }
           : undefined,
       },

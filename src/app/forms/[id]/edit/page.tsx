@@ -47,7 +47,7 @@ export default function FormEditorPage() {
 
   const saveForm = useCallback(async () => {
     setSaving(true);
-    await fetch(`/api/forms/${id}`, {
+    const res = await fetch(`/api/forms/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -56,6 +56,18 @@ export default function FormEditorPage() {
         fields: fields.map((f) => ({ ...f, options: f.options })),
       }),
     });
+    if (res.ok) {
+      const data = await res.json();
+      if (data.fields) {
+        setFields((prev) =>
+          prev.map((f) => {
+            if (!f.id.startsWith("new_")) return f;
+            const server = data.fields.find((sf: { order: number }) => sf.order === f.order);
+            return server ? { ...f, id: server.id } : f;
+          })
+        );
+      }
+    }
     setSaving(false);
   }, [id, title, description, fields]);
 
