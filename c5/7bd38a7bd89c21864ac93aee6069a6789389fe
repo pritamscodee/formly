@@ -1,0 +1,39 @@
+src/app/globals.css
+  s_2ba8a171c00e1a::t_74959f2de9d62d 303-310,312-316
+  s_2ba8a171c00e1a::t_0040e2ac03ce00 49,319-322
+  s_2ba8a171c00e1a::t_08c27d323c79bd 46-48
+src/components/sketch-background.tsx
+  s_2ba8a171c00e1a::t_34875b2258a06b 103
+  s_2ba8a171c00e1a::t_620aeb29b3d926 630-636,651-656,672-678
+  s_2ba8a171c00e1a::t_83f72c9677740c 123
+  s_2ba8a171c00e1a::t_843355dc8be109 199
+  s_2ba8a171c00e1a::t_42d67a92e7d1f3 87
+  s_2ba8a171c00e1a::t_d26374f796e678 615
+  s_2ba8a171c00e1a::t_836e7d8ff85232 167
+  s_2ba8a171c00e1a::t_7143e5caaa4dde 49
+  s_2ba8a171c00e1a::t_6a1717f337fd69 234
+  s_2ba8a171c00e1a::t_a8b25184fdc981 421,423,425,433-434,442,444-451,456,465-467,472-473,478,498-502,508,517-519,522,524-526,531,533,537,540,543-545,551,553,557,562-563,571-573,578-579,584,593-595,598,600
+  s_2ba8a171c00e1a::t_eaea0c72c19bd9 19
+  s_2ba8a171c00e1a::t_5a75785579a85d 247-420
+  s_2ba8a171c00e1a::t_49ec62ae0af2cd 422,424,426-432,435-441,443,452-455,457-464,468-471,474-477,479-497,503-507,509-516,520-521,523,527-530,532,534-536,538-539,541-542,546-550,552,554-556,558-561,564-570,574-577,580-583,585-592,596-597,599,601-604
+  s_2ba8a171c00e1a::t_27c5578e3a55d7 612
+  s_2ba8a171c00e1a::t_2ca2b240171c16 619-620,622,624-629,638,641-642,644-650,658-660,662-671
+src/app/page.tsx
+  s_2ba8a171c00e1a::t_fe20f68ec52eca 68
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "c57bd38a7bd89c21864ac93aee6069a6789389fe",
+  "prompts": {},
+  "sessions": {
+    "s_2ba8a171c00e1a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0c2a7a5d9ffeIJPR4ByZi8uEzq",
+        "model": "unknown"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  }
+}
