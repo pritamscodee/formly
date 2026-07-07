@@ -1,0 +1,19 @@
+package.json
+  s_3d1bab995381c2::t_1da46eeac8f7f5 9-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "a7bb3a9c9f16028adb85ddcec1964bcec3071a4c",
+  "prompts": {},
+  "sessions": {
+    "s_3d1bab995381c2": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0c2d32a1cffe94fDtVzln4m5Wp",
+        "model": "unknown"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  }
+}
