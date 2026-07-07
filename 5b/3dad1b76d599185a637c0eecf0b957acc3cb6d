@@ -1,0 +1,21 @@
+src/components/ui/dialog.tsx
+  s_3d1bab995381c2::t_bc093099080b30 56
+src/components/ShareDialog.tsx
+  s_3d1bab995381c2::t_4369e48b3efa6c 159
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "5b3dad1b76d599185a637c0eecf0b957acc3cb6d",
+  "prompts": {},
+  "sessions": {
+    "s_3d1bab995381c2": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0c2d32a1cffe94fDtVzln4m5Wp",
+        "model": "unknown"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  }
+}
