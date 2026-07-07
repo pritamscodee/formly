@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import { Card, CardContent, CardHeader, CardTitle, CardAction, CardDescription as CardDesc } from "@/components/ui/card";
 
 interface Channel {
   id: string;
@@ -42,7 +43,7 @@ function generateMessage(name: string, link: string, type: string) {
     return `Form: ${name}\n\nPlease fill out this form:\n${link}`;
   }
   if (type === "meet") {
-    return `📋 Form: ${name}\n🔗 Link: ${link}\n\nPlease fill out the form before the meeting.`;
+    return `\u{1F4CB} Form: ${name}\n\u{1F517} Link: ${link}\n\nPlease fill out the form before the meeting.`;
   }
   return `Please fill out this form: ${name}\n${link}`;
 }
@@ -51,7 +52,6 @@ export function ShareDialog({ formId, formTitle, trigger }: ShareDialogProps) {
   const [open, setOpen] = useState(false);
   const [lastCopiedAction, setLastCopiedAction] = useState<string | null>(null);
 
-  // Channel management state
   const [channels, setChannels] = useState<Channel[]>([]);
   const [loading, setLoading] = useState(false);
   const [newChannelName, setNewChannelName] = useState("");
@@ -76,7 +76,6 @@ export function ShareDialog({ formId, formTitle, trigger }: ShareDialogProps) {
       const res = await fetch(`/api/forms/${formId}/channels`);
       if (res.ok) setChannels(await res.json());
     } catch {
-      // ignore
     } finally {
       setLoading(false);
     }
@@ -100,7 +99,6 @@ export function ShareDialog({ formId, formTitle, trigger }: ShareDialogProps) {
         await fetchChannels();
       }
     } catch {
-      // ignore
     } finally {
       setCreating(false);
     }
@@ -113,7 +111,6 @@ export function ShareDialog({ formId, formTitle, trigger }: ShareDialogProps) {
       });
       if (res.ok) await fetchChannels();
     } catch {
-      // ignore
     }
   }
 
@@ -164,70 +161,75 @@ export function ShareDialog({ formId, formTitle, trigger }: ShareDialogProps) {
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-4">
-          {/* Direct link (no tracking) */}
-          <div className="rounded-xl border border-border p-3">
-            <div className="flex items-center justify-between mb-2">
-              <p className="text-xs font-medium text-muted-foreground">Direct form link</p>
-              <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">
-                No tracking
-              </span>
-            </div>
-            <div className="flex items-center gap-1.5 mb-2">
-              <code className="flex-1 truncate rounded-md bg-muted px-2 py-1 text-[11px] text-muted-foreground">
-                {`${baseUrl}/s/${formId}`}
-              </code>
-              <button
-                onClick={() => copy(`${baseUrl}/s/${formId}`, "direct_link")}
-                className="shrink-0 rounded-md bg-muted px-2 py-1 text-[11px] text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {lastCopiedAction === "direct_link" ? "Copied!" : "Copy"}
-              </button>
-            </div>
-            <p className="text-[10px] text-muted-foreground/60">
-              Share this link anywhere — no tracking code attached.
-            </p>
-          </div>
+        <div className="flex flex-col gap-3">
+          {/* Direct link card */}
+          <Card size="sm">
+            <CardHeader>
+              <CardTitle>Direct form link</CardTitle>
+              <CardDesc>No tracking attached</CardDesc>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center gap-1.5">
+                <code className="flex-1 truncate rounded-md bg-muted px-2.5 py-1.5 text-xs text-muted-foreground">
+                  {`${baseUrl}/s/${formId}`}
+                </code>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => copy(`${baseUrl}/s/${formId}`, "direct_link")}
+                >
+                  {lastCopiedAction === "direct_link" ? "Copied!" : "Copy"}
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
 
-          {/* Create new channel */}
-          <div className="flex flex-col gap-2 rounded-xl border border-border p-3">
-            <p className="text-xs font-medium text-muted-foreground">Add a distribution channel</p>
-            <div className="flex gap-2">
-              <Input
-                placeholder="e.g. WhatsApp Group A, Zoom Q1 All-Hands"
-                value={newChannelName}
-                onChange={(e) => setNewChannelName(e.target.value)}
-                className="flex-1 text-sm"
-              />
-              <select
-                value={newChannelType}
-                onChange={(e) => setNewChannelType(e.target.value)}
-                className="h-8 appearance-none rounded-lg border border-border bg-card px-2 pr-6 text-xs text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")", backgroundRepeat: "no-repeat", backgroundPosition: "right 6px center", backgroundSize: "14px" }}
-              >
-                <option value="whatsapp">WhatsApp</option>
-                <option value="email">Email</option>
-                <option value="meet">Zoom/Meet</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <Button
-              size="sm"
-              onClick={createChannel}
-              disabled={creating || !newChannelName.trim()}
-              className="self-end"
-            >
-              {creating ? "Creating..." : "Add Channel"}
-            </Button>
-          </div>
+          {/* Create channel card */}
+          <Card size="sm">
+            <CardHeader>
+              <CardTitle>Add a distribution channel</CardTitle>
+              <CardDesc>Track where your submissions come from</CardDesc>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-col gap-2">
+                <div className="flex gap-2">
+                  <Input
+                    placeholder="e.g. WhatsApp Group A, Zoom Q1 All-Hands"
+                    value={newChannelName}
+                    onChange={(e) => setNewChannelName(e.target.value)}
+                    className="flex-1"
+                  />
+                  <select
+                    value={newChannelType}
+                    onChange={(e) => setNewChannelType(e.target.value)}
+                    className="h-9 appearance-none rounded-lg border border-border bg-card px-2 pr-6 text-xs text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")", backgroundRepeat: "no-repeat", backgroundPosition: "right 6px center", backgroundSize: "14px" }}
+                  >
+                    <option value="whatsapp">WhatsApp</option>
+                    <option value="email">Email</option>
+                    <option value="meet">Zoom/Meet</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <Button
+                  size="sm"
+                  onClick={createChannel}
+                  disabled={creating || !newChannelName.trim()}
+                  className="self-end"
+                >
+                  {creating ? "Creating..." : "Add Channel"}
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
 
           <Separator />
 
           {/* Channel list */}
           {loading ? (
-            <p className="text-center text-xs text-muted-foreground py-4">Loading channels...</p>
+            <p className="py-6 text-center text-xs text-muted-foreground">Loading channels...</p>
           ) : channels.length === 0 ? (
-            <p className="text-center text-xs text-muted-foreground py-4">
+            <p className="py-6 text-center text-xs text-muted-foreground">
               No channels yet. Create one above to start tracking submissions.
             </p>
           ) : (
@@ -236,110 +238,98 @@ export function ShareDialog({ formId, formTitle, trigger }: ShareDialogProps) {
                 const link = channelLink(ch);
                 const msg = generateMessage(ch.name, link, ch.type);
                 return (
-                  <div key={ch.id} className="rounded-xl border border-border p-3">
-                    {/* Channel header */}
-                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-2">
-                      <div className="flex items-center gap-2 min-w-0 flex-1">
-                        <span className="text-sm font-medium text-foreground truncate">{ch.name}</span>
-                        <span className="shrink-0 rounded-full bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">
+                  <Card key={ch.id} size="sm">
+                    <CardHeader>
+                      <CardTitle className="truncate">{ch.name}</CardTitle>
+                      <CardDesc>
+                        <span className="rounded-full bg-muted px-2 py-0.5 text-[10px]">
                           {CHANNEL_TYPE_LABELS[ch.type] || ch.type}
                         </span>
-                      </div>
-                      <div className="flex items-center gap-2 shrink-0">
-                        <span className="text-[11px] text-muted-foreground">
-                          {ch._count.submissions} sub{ch._count.submissions !== 1 ? "s" : ""}
+                        <span className="ml-2 text-muted-foreground">
+                          {ch._count.submissions} submission{ch._count.submissions !== 1 ? "s" : ""}
                         </span>
-                        <button
+                      </CardDesc>
+                      <CardAction>
+                        <Button
+                          variant="ghost"
+                          size="sm"
                           onClick={() => deleteChannel(ch.id)}
-                          className="text-[11px] text-destructive hover:text-destructive transition-colors"
+                          className="text-destructive hover:text-destructive"
                         >
                           Delete
-                        </button>
+                        </Button>
+                      </CardAction>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="flex flex-col gap-2">
+                        {/* Tracking link */}
+                        <div className="flex items-center gap-1.5">
+                          <code className="flex-1 truncate rounded-md bg-muted px-2.5 py-1.5 text-xs text-muted-foreground">
+                            {link}
+                          </code>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => copy(link, `tracking_${ch.id}`)}
+                          >
+                            {lastCopiedAction === `tracking_${ch.id}` ? "Copied!" : "Copy"}
+                          </Button>
+                        </div>
+
+                        {/* Meeting link input */}
+                        {ch.type === "meet" && (
+                          <Input
+                            placeholder="Paste your Zoom/Google Meet link here..."
+                            value={meetingLinks[ch.id] || ""}
+                            onChange={(e) =>
+                              setMeetingLinks({ ...meetingLinks, [ch.id]: e.target.value })
+                            }
+                          />
+                        )}
+
+                        {/* Action buttons */}
+                        <div className="flex flex-wrap gap-1.5">
+                          {ch.type === "whatsapp" && (
+                            <Button variant="outline" size="sm" onClick={() => openWhatsApp(ch)}>
+                              Open WhatsApp
+                            </Button>
+                          )}
+                          {ch.type === "email" && (
+                            <Button variant="outline" size="sm" onClick={() => openEmail(ch)}>
+                              Open Email
+                            </Button>
+                          )}
+                          {ch.type === "meet" && (
+                            <Button variant="outline" size="sm" onClick={() => copyMeetingSnippet(ch)}>
+                              {lastCopiedAction === `meet_${ch.id}` ? "Copied!" : "Copy snippet"}
+                            </Button>
+                          )}
+                          <Button variant="outline" size="sm" onClick={() => copy(msg, `message_${ch.id}`)}>
+                            {lastCopiedAction === `message_${ch.id}` ? "Copied!" : "Copy message"}
+                          </Button>
+                          <Button variant="outline" size="sm" onClick={() => setQrChannelId(qrChannelId === ch.id ? null : ch.id)}>
+                            {qrChannelId === ch.id ? "Hide QR" : "QR Code"}
+                          </Button>
+                        </div>
+
+                        {/* QR Code */}
+                        {qrChannelId === ch.id && (
+                          <div className="rounded-lg bg-muted/30 p-4 text-center">
+                            <img
+                              src={`https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(link)}`}
+                              alt="QR Code"
+                              className="mx-auto rounded-lg"
+                              width={120}
+                              height={120}
+                            />
+                            <p className="mt-1.5 text-xs text-muted-foreground">
+                              Scan to open form on phone
+                            </p>
+                          </div>
+                        )}
                       </div>
-                    </div>
-
-                    {/* Tracking link */}
-                    <div className="flex items-center gap-1.5 mb-2">
-                      <code className="flex-1 truncate rounded-md bg-muted px-2 py-1 text-[11px] text-muted-foreground">
-                        {link}
-                      </code>
-                      <button
-                        onClick={() => copy(link, `tracking_${ch.id}`)}
-                        className="shrink-0 rounded-md bg-muted px-2 py-1 text-[11px] text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        {lastCopiedAction === `tracking_${ch.id}` ? "Copied!" : "Copy"}
-                      </button>
-                    </div>
-
-                    {/* Meeting link input for Zoom/Meet channels */}
-                    {ch.type === "meet" && (
-                      <input
-                        type="text"
-                        placeholder="Paste your Zoom/Google Meet link here..."
-                        value={meetingLinks[ch.id] || ""}
-                        onChange={(e) =>
-                          setMeetingLinks({ ...meetingLinks, [ch.id]: e.target.value })
-                        }
-                        className="mb-2 w-full rounded-md border border-border bg-muted/50 px-2.5 py-1.5 text-[11px] text-foreground outline-none transition-colors placeholder:text-muted-foreground/50 focus:border-foreground"
-                      />
-                    )}
-
-                    {/* Action buttons */}
-                    <div className="flex flex-wrap gap-1.5">
-                      {ch.type === "whatsapp" && (
-                        <button
-                          onClick={() => openWhatsApp(ch)}
-                          className="rounded-md bg-muted px-2 py-1 text-[11px] text-muted-foreground hover:text-foreground transition-colors"
-                        >
-                          Open WhatsApp
-                        </button>
-                      )}
-                      {ch.type === "email" && (
-                        <button
-                          onClick={() => openEmail(ch)}
-                          className="rounded-md bg-muted px-2 py-1 text-[11px] text-muted-foreground hover:text-foreground transition-colors"
-                        >
-                          Open Email
-                        </button>
-                      )}
-                      {ch.type === "meet" && (
-                        <button
-                          onClick={() => copyMeetingSnippet(ch)}
-                          className="rounded-md bg-muted px-2 py-1 text-[11px] text-muted-foreground hover:text-foreground transition-colors"
-                        >
-                          {lastCopiedAction === `meet_${ch.id}` ? "Copied!" : "Copy snippet"}
-                        </button>
-                      )}
-                      <button
-                        onClick={() => copy(msg, `message_${ch.id}`)}
-                        className="rounded-md bg-muted px-2 py-1 text-[11px] text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        {lastCopiedAction === `message_${ch.id}` ? "Copied!" : "Copy message"}
-                      </button>
-                      <button
-                        onClick={() => setQrChannelId(qrChannelId === ch.id ? null : ch.id)}
-                        className="rounded-md bg-muted px-2 py-1 text-[11px] text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        {qrChannelId === ch.id ? "Hide QR" : "QR Code"}
-                      </button>
-                    </div>
-
-                    {/* QR Code */}
-                    {qrChannelId === ch.id && (
-                      <div className="mt-3 rounded-lg bg-muted/30 p-3 text-center">
-                        <img
-                          src={`https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(link)}`}
-                          alt="QR Code"
-                          className="mx-auto rounded-lg"
-                          width={120}
-                          height={120}
-                        />
-                        <p className="mt-1 text-[10px] text-muted-foreground">
-                          Scan to open form on phone
-                        </p>
-                      </div>
-                    )}
-                  </div>
+                    </CardContent>
+                  </Card>
                 );
               })}
             </div>
