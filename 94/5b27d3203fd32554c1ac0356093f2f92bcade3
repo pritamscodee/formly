@@ -1,0 +1,45 @@
+src/generated/prisma/browser.ts
+  s_3d1bab995381c2::t_6e5c234df8d822 1-49
+src/generated/prisma/client.ts
+  s_3d1bab995381c2::t_bb28d5602365aa 1-73
+src/generated/prisma/commonInputTypes.ts
+  s_3d1bab995381c2::t_5a597e5180ed5f 1-302
+src/generated/prisma/enums.ts
+  s_3d1bab995381c2::t_78a2b3bb31990b 1-15
+src/generated/prisma/internal/class.ts
+  s_3d1bab995381c2::t_dfef7ad79a53c8 1-254
+src/generated/prisma/internal/prismaNamespace.ts
+  s_3d1bab995381c2::t_800b8ece23f5f3 1-1241
+src/generated/prisma/internal/prismaNamespaceBrowser.ts
+  s_3d1bab995381c2::t_a4e62cdc695d71 1-176
+src/generated/prisma/models.ts
+  s_3d1bab995381c2::t_7fadf13742f475 1-17
+src/generated/prisma/models/Answer.ts
+  s_3d1bab995381c2::t_2570ca4acb6731 1-1424
+src/generated/prisma/models/Channel.ts
+  s_3d1bab995381c2::t_7531161b5e479a 1-1523
+src/generated/prisma/models/Field.ts
+  s_3d1bab995381c2::t_eb9386163b97e1 1-1768
+src/generated/prisma/models/Form.ts
+  s_3d1bab995381c2::t_5001f2a15f7548 1-1824
+src/generated/prisma/models/Submission.ts
+  s_3d1bab995381c2::t_33bf05a03daf4a 1-1625
+src/generated/prisma/models/User.ts
+  s_3d1bab995381c2::t_ff2eb11024b842 1-1403
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "945b27d3203fd32554c1ac0356093f2f92bcade3",
+  "prompts": {},
+  "sessions": {
+    "s_3d1bab995381c2": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0c2d32a1cffe94fDtVzln4m5Wp",
+        "model": "unknown"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  }
+}
