@@ -65,7 +65,7 @@ function LandingNav() {
         </Link>
 
         <nav style={{ display: "flex", alignItems: "center", gap: 28 }} className="lp-nav-links">
-          {["Features", "Pricing", "Docs", "Blog"].map((item) => (
+          {["Features", "Pricing", "Blog"].map((item) => (
             <Link
               key={item}
               href="#"
