@@ -156,7 +156,7 @@ export function ShareDialog({ formId, formTitle, trigger }: ShareDialogProps) {
           Share & Integrate
         </Button>
       )}
-      <DialogContent className="sm:max-w-lg">
+      <DialogContent className="sm:max-w-xl">
         <DialogHeader>
           <DialogTitle>Share &ldquo;{formTitle}&rdquo;</DialogTitle>
           <DialogDescription>
