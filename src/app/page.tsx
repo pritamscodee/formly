@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
 import { HeroSection } from "@/components/hero-section";
 import { FeaturesSection } from "@/components/features-section";
+import { ManagedFormSection } from "@/components/managed-form-section";
 import { CTASection } from "@/components/cta-section";
 import { DemoSection } from "@/components/demo-section";
 import { SketchBackground } from "@/components/sketch-background";
@@ -358,6 +359,7 @@ export default function Home() {
       <main style={{ position: "relative", zIndex: 1 }}>
         <HeroSection />
         <FeaturesSection />
+        <ManagedFormSection />
         <DemoSection />
         <CTASection />
       </main>

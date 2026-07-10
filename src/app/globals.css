@@ -547,6 +547,26 @@
   letter-spacing: -0.01em;
 }
 
+/* Managed form section grid: 3-col → 1-col on mobile, 2-col on tablet */
+@media (max-width: 768px) {
+  .lp-managed-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .lp-managed-grid > * {
+    grid-column: span 1 !important;
+    padding: 20px !important;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .lp-managed-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .lp-managed-grid > * {
+    grid-column: span 1 !important;
+  }
+}
+
 /* ── Section top padding mobile ── */
 @media (max-width: 768px) {
   .lp-section-top-pad {
