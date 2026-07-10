@@ -1,0 +1,26 @@
+src/app/register/page.tsx
+  s_8eeb12c79a7dbc::t_527f162fce4624 171-176
+src/app/login/page.tsx
+  s_8eeb12c79a7dbc::t_c5afea293f89b0 149-154
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.11",
+  "base_commit_sha": "45d4e45a47cbd4566ae9835b8f2a142b1e73d72a",
+  "prompts": {},
+  "humans": {
+    "h_8dfeaef981cbe6": {
+      "author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_8eeb12c79a7dbc": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0b2445fb7ffeowuhXs5Of96ToW",
+        "model": "unknown"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  }
+}
