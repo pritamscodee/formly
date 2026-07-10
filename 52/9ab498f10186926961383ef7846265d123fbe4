@@ -1,0 +1,24 @@
+package-lock.json
+  s_e92bad4118df98::t_d4317243a992a6 9955
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.11",
+  "base_commit_sha": "529ab498f10186926961383ef7846265d123fbe4",
+  "prompts": {},
+  "humans": {
+    "h_8dfeaef981cbe6": {
+      "author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_e92bad4118df98": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0b26b7c29ffelOTBngD30Vztli",
+        "model": "unknown"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  }
+}
