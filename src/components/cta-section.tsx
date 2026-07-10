@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { CheckCircle } from "reicon-react";
+import { CheckCircle, ArrowRight, ChevronRight, Star } from "reicon-react";
 
 const STEPS = [
   {
@@ -33,23 +33,23 @@ function HowItWorks() {
         background: "#f5f0e8",
         borderTop: "1px solid #e5e7eb",
         borderBottom: "1px solid #e5e7eb",
-        padding: "96px 0",
+        padding: "80px 20px",
       }}
     >
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.55 }}
-          style={{ marginBottom: 52 }}
+          style={{ marginBottom: 48 }}
         >
           <span className="lp-mono-label" style={{ display: "block", marginBottom: 14, fontSize: 11 }}>
             How it works
           </span>
           <h2
             style={{
-              fontSize: "clamp(28px, 4vw, 48px)",
+              fontSize: "clamp(24px, 4vw, 48px)",
               fontWeight: 400,
               lineHeight: 1.2,
               letterSpacing: "-0.01em",
@@ -61,6 +61,7 @@ function HowItWorks() {
         </motion.div>
 
         <div
+          className="lp-how-steps"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
@@ -141,21 +142,21 @@ function Testimonials() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section style={{ background: "#faf9f5", padding: "96px 0", borderBottom: "1px solid #e5e7eb" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
+    <section style={{ background: "#faf9f5", padding: "80px 20px", borderBottom: "1px solid #e5e7eb" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.55 }}
-          style={{ marginBottom: 48 }}
+          style={{ marginBottom: 40 }}
         >
           <span className="lp-mono-label" style={{ display: "block", marginBottom: 14, fontSize: 11 }}>
             What teams say
           </span>
           <h2
             style={{
-              fontSize: "clamp(24px, 3vw, 40px)",
+              fontSize: "clamp(22px, 3vw, 40px)",
               fontWeight: 400,
               lineHeight: 1.2,
               letterSpacing: "-0.01em",
@@ -167,6 +168,7 @@ function Testimonials() {
         </motion.div>
 
         <div
+          className="lp-testimonials-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
@@ -237,7 +239,7 @@ function FinalCTA() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="lp-green-band" style={{ padding: "100px 32px" }}>
+    <section className="lp-green-band" style={{ padding: "80px 20px" }}>
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 32 }}
@@ -259,7 +261,7 @@ function FinalCTA() {
 
         <h2
           style={{
-            fontSize: "clamp(32px, 5vw, 64px)",
+            fontSize: "clamp(28px, 5vw, 64px)",
             fontWeight: 400,
             lineHeight: 1.05,
             letterSpacing: "-0.025em",
@@ -272,7 +274,7 @@ function FinalCTA() {
 
         <p
           style={{
-            fontSize: 17,
+            fontSize: "clamp(15px, 2.5vw, 17px)",
             lineHeight: 1.5,
             color: "rgba(255,255,255,0.55)",
             maxWidth: 440,
@@ -285,6 +287,7 @@ function FinalCTA() {
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
           <Link href="/register" className="lp-btn-white lp-beam-btn" style={{ padding: "14px 36px", fontSize: 15 }}>
             Get started free
+            <ArrowRight size={16} color="#17171c" />
           </Link>
           <Link
             href="/login"

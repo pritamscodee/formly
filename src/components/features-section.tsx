@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import {
   MessageCircle2, Grid, Chart2, LinkCircle,
-  Download, Envelope, CheckCircle,
+  Download, Envelope, CheckCircle, ChevronRight,
 } from "reicon-react";
 
 function MiniBarChart() {
@@ -307,18 +307,18 @@ export function FeaturesSection() {
       className="lp-features-section"
       style={{
         background: "#faf9f5",
-        padding: "100px 0 88px",
+        padding: "80px 0 88px",
         borderTop: "1px solid #e5e7eb",
       }}
     >
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 20px" }}>
 
         <motion.div
           ref={headRef}
           initial={{ opacity: 0, y: 24 }}
           animate={headInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.55 }}
-          style={{ maxWidth: 620, marginBottom: 60 }}
+          style={{ maxWidth: 620, marginBottom: 48 }}
         >
           <span className="lp-mono-label" style={{ display: "block", marginBottom: 14, fontSize: 11, color: "#93939f" }}>
             Everything you need
@@ -353,7 +353,7 @@ export function FeaturesSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="lp-stats-grid"
           style={{
-            marginTop: 60,
+            marginTop: 48,
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
             border: "1px solid #e5e7eb",
@@ -374,7 +374,7 @@ export function FeaturesSection() {
             >
               <span
                 style={{
-                  fontSize: 36,
+                  fontSize: "clamp(28px, 4vw, 36px)",
                   fontWeight: 400,
                   lineHeight: 1,
                   color: "#17171c",

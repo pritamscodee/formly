@@ -3,6 +3,8 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Check, ArrowRight } from "reicon-react";
+
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
@@ -16,7 +18,7 @@ function FormMockup() {
     <div className="lp-console" style={{ maxWidth: 540, width: "100%" }}>
       <div
         style={{
-          padding: "24px 28px 20px",
+          padding: "20px 20px 16px",
           borderBottom: "1px solid rgba(255,255,255,0.08)",
           display: "flex",
           alignItems: "center",
@@ -40,15 +42,16 @@ function FormMockup() {
             alignItems: "center",
             padding: "0 10px",
             border: "1px solid rgba(255,255,255,0.06)",
+            overflow: "hidden",
           }}
         >
-          <span style={{ fontSize: 11, color: "rgba(255,255,255,0.35)" }}>
+          <span style={{ fontSize: 11, color: "rgba(255,255,255,0.35)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
             formly.app/s/team-survey
           </span>
         </div>
       </div>
 
-      <div style={{ padding: "28px 28px 24px" }}>
+      <div style={{ padding: "24px 20px 20px" }}>
         <p
           style={{
             fontFamily: "var(--font-geist-mono), monospace",
@@ -64,7 +67,7 @@ function FormMockup() {
 
         <h3
           style={{
-            fontSize: 20,
+            fontSize: "clamp(17px, 3.5vw, 20px)",
             fontWeight: 400,
             lineHeight: 1.3,
             color: "#ffffff",
@@ -135,21 +138,11 @@ function FormMockup() {
                 {ans}
               </span>
               {i === 1 && (
-                <svg
+                <Check
+                  size={14}
+                  color="#ffffff"
                   style={{ marginLeft: "auto", flexShrink: 0 }}
-                  width={14}
-                  height={14}
-                  viewBox="0 0 16 16"
-                  fill="none"
-                >
-                  <path
-                    d="M3 8l4 4 6-6"
-                    stroke="#ffffff"
-                    strokeWidth={1.8}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                />
               )}
             </motion.div>
           ))}
@@ -222,6 +215,7 @@ export function HeroSection() {
         paddingTop: 140,
         paddingBottom: 0,
       }}
+      className="lp-section-top-pad"
     >
       <DotGrid />
 
@@ -239,7 +233,7 @@ export function HeroSection() {
         }}
       />
 
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 20px" }}>
 
         <motion.div {...fadeUp(0)} style={{ display: "flex", justifyContent: "center", marginBottom: 36 }}>
           <span className="lp-chip-coral">
@@ -265,6 +259,7 @@ export function HeroSection() {
             color: "#17171c",
             maxWidth: 860,
             margin: "0 auto 20px",
+            padding: "0 8px",
           }}
         >
           Forms that feel like{" "}
@@ -277,7 +272,8 @@ export function HeroSection() {
           style={{
             textAlign: "center",
             maxWidth: 500,
-            margin: "0 auto 48px",
+            margin: "0 auto 40px",
+            padding: "0 8px",
           }}
         >
           Build beautiful, interactive forms with drag-and-drop ease. Collect
@@ -286,10 +282,11 @@ export function HeroSection() {
 
         <motion.div
           {...fadeUp(0.24)}
-          style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap", marginBottom: 16 }}
+          style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap", marginBottom: 16, padding: "0 8px" }}
         >
           <Link href="/register" className="lp-btn-primary lp-beam-btn" style={{ padding: "14px 34px", fontSize: 15 }}>
             Get started free
+            <ArrowRight size={16} color="#fff" />
           </Link>
           <Link href="/login" className="lp-btn-outline" style={{ padding: "14px 34px", fontSize: 15 }}>
             View demo
@@ -298,7 +295,7 @@ export function HeroSection() {
 
         <motion.p
           {...fadeUp(0.3)}
-          style={{ textAlign: "center", fontSize: 12, color: "#93939f", marginBottom: 80 }}
+          style={{ textAlign: "center", fontSize: 12, color: "#93939f", marginBottom: 60, padding: "0 8px" }}
         >
           No credit card required · Free forever plan · Setup in 60 seconds
         </motion.p>
@@ -307,7 +304,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-          style={{ display: "flex", justifyContent: "center", padding: "0 16px" }}
+          style={{ display: "flex", justifyContent: "center", padding: "0 4px" }}
         >
           <FormMockup />
         </motion.div>

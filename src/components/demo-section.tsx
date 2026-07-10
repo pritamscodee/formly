@@ -14,23 +14,23 @@ export function DemoSection() {
         background: "#faf9f5",
         borderTop: "1px solid #e5e7eb",
         borderBottom: "1px solid #e5e7eb",
-        padding: "96px 0",
+        padding: "80px 20px",
       }}
     >
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.55 }}
-          style={{ textAlign: "center", marginBottom: 48 }}
+          style={{ textAlign: "center", marginBottom: 40 }}
         >
           <span className="lp-mono-label" style={{ display: "block", marginBottom: 14, fontSize: 11 }}>
             Demo
           </span>
           <h2
             style={{
-              fontSize: "clamp(28px, 4vw, 48px)",
+              fontSize: "clamp(24px, 4vw, 48px)",
               fontWeight: 400,
               lineHeight: 1.2,
               letterSpacing: "-0.01em",
@@ -60,6 +60,7 @@ export function DemoSection() {
             borderRadius: 12,
             overflow: "hidden",
             boxShadow: "0 20px 60px rgba(0,0,0,0.10), 0 8px 24px rgba(0,0,0,0.05)",
+            aspectRatio: "16/9",
           }}
         >
           <VideoPlayer src="/demo.mp4" />
