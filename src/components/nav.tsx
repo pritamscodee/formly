@@ -135,7 +135,7 @@ export function AppNav() {
           </span>
         </Link>
           <button
-            onClick={() => authClient.signOut({ fetchOptions: { onSuccess: () => { window.location.href = "/"; } } })}
+            onClick={() => authClient.signOut({ callbackUrl: "/" })}
             style={{
               fontSize: 14,
               color: "#616161",

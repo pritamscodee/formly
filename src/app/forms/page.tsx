@@ -97,7 +97,7 @@ export default function FormsPage() {
             <span className="text-xs text-muted-foreground">
               {forms.length} form{forms.length !== 1 ? "s" : ""}
             </span>
-            <Button variant="ghost" size="sm" onClick={() => authClient.signOut({ fetchOptions: { onSuccess: () => { window.location.href = "/"; } } })}>
+            <Button variant="ghost" size="sm" onClick={() => authClient.signOut({ callbackUrl: "/" })}>
               Sign out
             </Button>
           </div>

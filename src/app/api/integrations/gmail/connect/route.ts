@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
 import { getOAuth2Client, getAuthUrl } from "@/lib/gmail";
 
 export async function GET(req: Request) {
   try {
-    const session = await auth.api.getSession({ headers: await headers() });
+    const session = await auth();
     if (!session?.user?.id) {
       return NextResponse.redirect(new URL("/login", req.url));
     }

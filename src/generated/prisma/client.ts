@@ -57,10 +57,10 @@ export type Session = Prisma.SessionModel
  */
 export type Account = Prisma.AccountModel
 /**
- * Model Verification
+ * Model VerificationToken
  * 
  */
-export type Verification = Prisma.VerificationModel
+export type VerificationToken = Prisma.VerificationTokenModel
 /**
  * Model Form
  * 

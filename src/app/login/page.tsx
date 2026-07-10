@@ -36,12 +36,13 @@ export default function LoginPage() {
 
   async function onSubmit(data: LoginForm) {
     setError("");
-    const { error: signInError } = await authClient.signIn.email({
+    const result = await authClient.signIn("credentials", {
       email: data.email,
       password: data.password,
+      redirect: false,
     });
 
-    if (signInError) {
+    if (result?.error) {
       setError("Invalid email or password");
     } else {
       router.push("/forms");
@@ -146,12 +147,7 @@ export default function LoginPage() {
 
             <button
               type="button"
-              onClick={async () => {
-                const { error } = await authClient.signIn.social({ provider: "google", callbackURL: "/forms" });
-                if (error) {
-                  setError(error.message || "Google sign-in failed");
-                }
-              }}
+              onClick={() => authClient.signIn("google", { callbackUrl: "/forms" })}
               className="flex w-full items-center justify-center gap-3 rounded-[9999px] border border-[#d9d9dd] bg-white px-4 py-2.5 text-sm font-[500] text-[#212121] transition-colors hover:bg-[#f5f5f5]"
             >
               <svg className="h-5 w-5" viewBox="0 0 24 24">
