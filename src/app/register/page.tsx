@@ -168,7 +168,12 @@ export default function RegisterPage() {
 
             <button
               type="button"
-              onClick={() => authClient.signIn.social({ provider: "google", callbackURL: "/forms" })}
+              onClick={async () => {
+                const { error } = await authClient.signIn.social({ provider: "google", callbackURL: "/forms" });
+                if (error) {
+                  setError(error.message || "Google sign-in failed");
+                }
+              }}
               className="flex w-full items-center justify-center gap-3 rounded-[9999px] border border-[#d9d9dd] bg-white px-4 py-2.5 text-sm font-[500] text-[#212121] transition-colors hover:bg-[#f5f5f5]"
             >
               <svg className="h-5 w-5" viewBox="0 0 24 24">
