@@ -1,0 +1,26 @@
+src/app/login/page.tsx
+  s_e92bad4118df98::t_e879b316ef2b76 52
+src/app/register/page.tsx
+  s_e92bad4118df98::t_d429cb5d7acd35 56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.11",
+  "base_commit_sha": "ff2bf8111c822459380c1d649c465eece0e1e23b",
+  "prompts": {},
+  "humans": {
+    "h_8dfeaef981cbe6": {
+      "author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_e92bad4118df98": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0b26b7c29ffelOTBngD30Vztli",
+        "model": "unknown"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  }
+}
