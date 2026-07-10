@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 import { sendEmailWithAttachments } from "@/lib/gmail";
 import { sendWhatsAppMessage, buildFormSummaryMessage } from "@/lib/whatsapp";
 import { generateCSV, generatePDF } from "@/lib/export";
@@ -115,7 +116,7 @@ async function triggerAutoSend(
 
 export async function GET(req: Request) {
   try {
-    const session = await auth();
+    const session = await auth.api.getSession({ headers: await headers() });
     if (!session?.user?.id) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }

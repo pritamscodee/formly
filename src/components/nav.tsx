@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
 
 export function PublicNav() {
   return (
@@ -133,19 +134,23 @@ export function AppNav() {
             Formly
           </span>
         </Link>
-        <Link
-          href="/api/auth/signout"
-          style={{
-            fontSize: 14,
-            color: "#616161",
-            textDecoration: "none",
-            transition: "color 0.15s",
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = "#17171c")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "#616161")}
-        >
-          Sign out
-        </Link>
+          <button
+            onClick={() => authClient.signOut({ fetchOptions: { onSuccess: () => { window.location.href = "/"; } } })}
+            style={{
+              fontSize: 14,
+              color: "#616161",
+              textDecoration: "none",
+              transition: "color 0.15s",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: 0,
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#17171c")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "#616161")}
+          >
+            Sign out
+          </button>
       </div>
     </header>
   );

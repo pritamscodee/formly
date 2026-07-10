@@ -19,6 +19,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ShareDialog } from "@/components/ShareDialog";
+import { authClient } from "@/lib/auth-client";
 
 interface FormListItem {
   id: string;
@@ -96,7 +97,7 @@ export default function FormsPage() {
             <span className="text-xs text-muted-foreground">
               {forms.length} form{forms.length !== 1 ? "s" : ""}
             </span>
-            <Button variant="ghost" size="sm" onClick={() => { fetch("/api/auth/signout").then(() => router.push("/")); }}>
+            <Button variant="ghost" size="sm" onClick={() => authClient.signOut({ fetchOptions: { onSuccess: () => { window.location.href = "/"; } } })}>
               Sign out
             </Button>
           </div>

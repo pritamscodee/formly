@@ -10,15 +10,17 @@ import { DemoSection } from "@/components/demo-section";
 import { SketchBackground } from "@/components/sketch-background";
 import { Menu, X, ChevronRight, ArrowRight, Home as HomeIcon, Globe, Send } from "reicon-react";
 
+import { authClient } from "@/lib/auth-client";
+
 function LandingNav() {
   const [scrolled, setScrolled] = useState(false);
-  const [signedIn, setSignedIn] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { data: session } = authClient.useSession();
+  const signedIn = !!session?.user;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener("scroll", onScroll, { passive: true });
-    fetch("/api/auth/session").then((r) => r.json()).then((s) => { if (s?.user) setSignedIn(true); }).catch(() => {});
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
