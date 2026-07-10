@@ -49,22 +49,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen">
-      {/* Left: illustration band */}
-      <div className="hidden lg:flex w-1/2 items-center justify-center bg-[#eeece7] p-12">
-        <div className="relative w-full max-w-md">
-          <img
-            src="/login.svg"
-            alt=""
-            width={664}
-            height={799}
-            className="h-auto w-full"
-          />
-        </div>
-      </div>
-
-      {/* Right: form */}
-      <div className="flex w-full lg:w-1/2 items-center justify-center bg-white p-6">
+    <div className="flex min-h-screen items-center justify-center bg-white p-6">
         <div className="w-full max-w-sm">
           <Link
             href="/"
@@ -174,7 +159,6 @@ export default function LoginPage() {
             </button>
           </div>
         </div>
-      </div>
     </div>
   );
 }
