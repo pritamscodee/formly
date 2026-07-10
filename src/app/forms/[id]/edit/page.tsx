@@ -8,8 +8,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { FieldEditor, QuestionTypePicker } from "@/components/FieldEditor";
 import { ShareDialog } from "@/components/ShareDialog";
+import FormTimer from "@/components/FormTimer";
 import type { FormField, FieldType } from "@/types";
 
 export default function FormEditorPage() {
@@ -23,6 +25,8 @@ export default function FormEditorPage() {
   const [saving, setSaving] = useState(false);
   const [loading, setLoading] = useState(true);
   const [showAddPanel, setShowAddPanel] = useState(false);
+  const [expiresAt, setExpiresAt] = useState<string | null>(null);
+  const [isActive, setIsActive] = useState(true);
 
   useEffect(() => {
     fetch(`/api/forms/${id}`)
@@ -35,6 +39,8 @@ export default function FormEditorPage() {
         setTitle(data.title);
         setDescription(data.description);
         setPublished(data.published);
+        setExpiresAt(data.expiresAt ?? null);
+        setIsActive(data.isActive ?? true);
         const rawFields: Record<string, unknown>[] = data.fields || [];
         const parsedFields = rawFields.map((f) => ({
           ...f,
@@ -160,7 +166,7 @@ export default function FormEditorPage() {
   return (
     <div className="flex min-h-screen flex-col bg-parchment">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-parchment/95 backdrop-blur">
-        <div className="mx-auto flex h-13 max-w-6xl items-center justify-between gap-2 px-3 sm:px-6">
+        <div className="mx-auto flex h-12 sm:h-13 max-w-6xl items-center justify-between gap-2 px-3 sm:px-6">
           <div className="flex items-center gap-2 min-w-0 flex-1 sm:flex-initial">
             <Link href="/forms" className="inline-flex size-7 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground">
               <svg width={18} height={18} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -171,29 +177,68 @@ export default function FormEditorPage() {
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="h-auto min-w-0 w-full sm:min-w-[240px] sm:w-auto border-none bg-transparent px-0 text-sm font-medium tracking-tight shadow-none focus-visible:ring-0 truncate"
+              className="h-auto min-w-0 w-full sm:min-w-[200px] sm:w-auto border-none bg-transparent px-0 text-sm font-medium tracking-tight shadow-none focus-visible:ring-0 truncate"
             />
           </div>
-          <div className="flex items-center gap-1.5 sm:gap-3">
-            <span className="hidden sm:inline text-xs font-medium whitespace-nowrap">
+          <div className="flex items-center gap-1 flex-nowrap shrink-0">
+            <span className="hidden lg:inline text-xs font-medium whitespace-nowrap">
               <span className={saving ? "text-muted-foreground" : "text-emerald-600"}>
                 {saving ? "Saving..." : "Saved"}
               </span>
             </span>
-            <Button variant="ghost" size="sm" onClick={duplicateForm} className="hidden sm:inline-flex">
+            <Button variant="ghost" size="sm" onClick={duplicateForm} className="hidden lg:inline-flex text-xs whitespace-nowrap h-7">
               Duplicate
             </Button>
-            <Link href={`/forms/${id}/results`} className="inline-flex h-7 w-7 sm:w-auto items-center justify-center rounded-lg sm:px-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
-              <svg width={16} height={16} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} className="sm:hidden">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-              </svg>
-              <span className="hidden sm:inline">Responses</span>
-            </Link>
+            <div className="hidden md:flex items-center gap-0.5">
+              <Link href={`/forms/${id}/results`} className="inline-flex h-7 items-center justify-center rounded-md px-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground whitespace-nowrap">
+                Responses
+              </Link>
+              <Link href={`/forms/${id}/submissions`} className="inline-flex h-7 items-center justify-center rounded-md px-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground whitespace-nowrap">
+                Sheet
+              </Link>
+              <Link href={`/forms/${id}/integrations`} className="inline-flex h-7 items-center justify-center rounded-md px-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground whitespace-nowrap">
+                Integrations
+              </Link>
+              <Link href={`/forms/${id}/uploads`} className="inline-flex h-7 items-center justify-center rounded-md px-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground whitespace-nowrap">
+                Docs
+              </Link>
+            </div>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="md:hidden inline-flex items-center justify-center h-7 w-7 p-0 rounded-md text-muted-foreground hover:bg-muted cursor-pointer">
+                <svg width={16} height={16} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-44">
+                <DropdownMenuItem>
+                  <Link href={`/forms/${id}/results`} className="w-full text-xs">Responses</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href={`/forms/${id}/submissions`} className="w-full text-xs">Spreadsheet</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href={`/forms/${id}/integrations`} className="w-full text-xs">Integrations</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href={`/forms/${id}/uploads`} className="w-full text-xs">Docs</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <div className="w-px h-5 bg-border/60 hidden md:block" />
+            <FormTimer
+              formId={id}
+              expiresAt={expiresAt}
+              isActive={isActive}
+              onUpdate={(ea, ia) => {
+                setExpiresAt(ea);
+                setIsActive(ia);
+              }}
+            />
             <Button
               variant={published ? "outline" : "default"}
               size="sm"
               onClick={togglePublish}
-              className="rounded-full text-xs sm:text-sm px-2.5 sm:px-4"
+              className="rounded-full text-xs px-3 h-7 whitespace-nowrap"
             >
               {published ? "Published" : "Publish"}
             </Button>

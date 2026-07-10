@@ -321,3 +321,93 @@
 .lp-green-band {
   background: #1a7a4c;
 }
+
+/* ─────────────────────────────────────────────────────────────────
+   RESPONSIVE — Landing Page
+   ───────────────────────────────────────────────────────────────── */
+
+/* Nav responsive */
+@media (max-width: 640px) {
+  .lp-nav-links { display: none !important; }
+}
+
+/* Hero */
+@media (max-width: 640px) {
+  .lp-hero-display { font-size: clamp(32px, 9vw, 48px); }
+  .lp-body-large { font-size: 15px; }
+  .lp-chip-coral { font-size: 11px; padding: 3px 10px; }
+  .lp-console { margin: 0 -8px; border-radius: 10px; }
+}
+
+/* Features grid: 3-col → 1-col on mobile, 2-col on tablet */
+@media (max-width: 768px) {
+  .lp-features-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .lp-features-grid > * {
+    grid-column: span 1 !important;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .lp-features-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .lp-features-grid > * {
+    grid-column: span 1 !important;
+  }
+}
+
+/* Stats grid: 4-col → 2-col on mobile, full width cells */
+@media (max-width: 640px) {
+  .lp-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .lp-stats-grid > div {
+    border-left: none !important;
+    border-top: 1px solid #e5e7eb;
+  }
+  .lp-stats-grid > div:nth-child(1),
+  .lp-stats-grid > div:nth-child(2) {
+    border-top: none;
+  }
+  .lp-stats-grid > div:nth-child(odd) {
+    border-left: none !important;
+  }
+}
+
+/* How it works steps: stack on mobile */
+@media (max-width: 640px) {
+  .lp-how-steps {
+    grid-template-columns: 1fr !important;
+  }
+  .lp-how-steps > div {
+    border-right: none !important;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .lp-how-steps > div:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Footer grid responsive */
+@media (max-width: 640px) {
+  .lp-footer-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Sections padding mobile */
+@media (max-width: 640px) {
+  .lp-section-pad {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* Feature heading */
+.lp-feature-heading {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}

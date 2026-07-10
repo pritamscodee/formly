@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import {
@@ -8,6 +8,7 @@ import {
 } from "recharts";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { generateCSV, downloadCSV, generatePDF, downloadPDF } from "@/lib/export";
 
 interface Answer {
   id: string;
@@ -51,6 +52,7 @@ export default function ResultsPage() {
   const [channels, setChannels] = useState<Channel[]>([]);
   const [channelFilter, setChannelFilter] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [exporting, setExporting] = useState<"csv" | "pdf" | null>(null);
 
   useEffect(() => {
     Promise.all([
@@ -78,6 +80,22 @@ export default function ResultsPage() {
   const filteredSubmissions = channelFilter
     ? submissions.filter((s) => s.channelId === channelFilter)
     : submissions;
+
+  const handleExportCSV = useCallback(() => {
+    if (!form) return;
+    setExporting("csv");
+    const csv = generateCSV(form, filteredSubmissions, channels);
+    downloadCSV(form.title, csv);
+    setExporting(null);
+  }, [form, filteredSubmissions, channels]);
+
+  const handleExportPDF = useCallback(() => {
+    if (!form) return;
+    setExporting("pdf");
+    const doc = generatePDF(form, filteredSubmissions, channels);
+    downloadPDF(form.title, doc);
+    setExporting(null);
+  }, [form, filteredSubmissions, channels]);
 
   if (loading) {
     return (
@@ -108,7 +126,7 @@ export default function ResultsPage() {
   return (
     <div className="min-h-screen bg-parchment">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-parchment/95 backdrop-blur">
-        <div className="mx-auto flex h-13 max-w-4xl items-center justify-between gap-2 px-4 sm:px-6">
+        <div className="mx-auto flex h-12 sm:h-13 max-w-4xl items-center justify-between gap-2 px-3 sm:px-6">
           <div className="flex items-center gap-2 min-w-0">
             <Link href="/forms" className="inline-flex size-7 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground">
               <svg width={18} height={18} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -124,10 +142,41 @@ export default function ResultsPage() {
               </svg>
               <span className="hidden sm:inline">Edit</span>
             </Link>
-            <span className="text-xs text-muted-foreground whitespace-nowrap">
+            <Link href={`/forms/${id}/submissions`} className="inline-flex h-7 items-center justify-center gap-1.5 rounded-lg px-2 sm:px-2.5 text-xs sm:text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
+              <span className="hidden sm:inline">Spreadsheet</span>
+            </Link>
+            <span className="text-xs text-muted-foreground whitespace-nowrap hidden sm:inline">
               {filteredSubmissions.length} response{filteredSubmissions.length !== 1 ? "s" : ""}
               {channelFilter ? " (filtered)" : ""}
             </span>
+            {filteredSubmissions.length > 0 && (
+              <>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="h-7 gap-1.5 rounded-lg px-2 text-xs"
+                  onClick={handleExportCSV}
+                  disabled={exporting === "csv"}
+                >
+                  <svg width={14} height={14} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <span className="hidden sm:inline">{exporting === "csv" ? "Exporting..." : "CSV"}</span>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="h-7 gap-1.5 rounded-lg px-2 text-xs"
+                  onClick={handleExportPDF}
+                  disabled={exporting === "pdf"}
+                >
+                  <svg width={14} height={14} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <span className="hidden sm:inline">{exporting === "pdf" ? "Exporting..." : "PDF"}</span>
+                </Button>
+              </>
+            )}
           </div>
         </div>
       </header>

@@ -56,7 +56,9 @@ export const ModelName = {
   Field: 'Field',
   Channel: 'Channel',
   Submission: 'Submission',
-  Answer: 'Answer'
+  Answer: 'Answer',
+  ConnectedAccount: 'ConnectedAccount',
+  FormIntegration: 'FormIntegration'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -93,6 +95,8 @@ export const FormScalarFieldEnum = {
   title: 'title',
   description: 'description',
   published: 'published',
+  isActive: 'isActive',
+  expiresAt: 'expiresAt',
   userId: 'userId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -149,6 +153,31 @@ export const AnswerScalarFieldEnum = {
 } as const
 
 export type AnswerScalarFieldEnum = (typeof AnswerScalarFieldEnum)[keyof typeof AnswerScalarFieldEnum]
+
+
+export const ConnectedAccountScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  type: 'type',
+  label: 'label',
+  config: 'config',
+  createdAt: 'createdAt'
+} as const
+
+export type ConnectedAccountScalarFieldEnum = (typeof ConnectedAccountScalarFieldEnum)[keyof typeof ConnectedAccountScalarFieldEnum]
+
+
+export const FormIntegrationScalarFieldEnum = {
+  id: 'id',
+  formId: 'formId',
+  connectedAccountId: 'connectedAccountId',
+  enabled: 'enabled',
+  autoSend: 'autoSend',
+  settings: 'settings',
+  createdAt: 'createdAt'
+} as const
+
+export type FormIntegrationScalarFieldEnum = (typeof FormIntegrationScalarFieldEnum)[keyof typeof FormIntegrationScalarFieldEnum]
 
 
 export const SortOrder = {

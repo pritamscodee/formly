@@ -389,7 +389,9 @@ export const ModelName = {
   Field: 'Field',
   Channel: 'Channel',
   Submission: 'Submission',
-  Answer: 'Answer'
+  Answer: 'Answer',
+  ConnectedAccount: 'ConnectedAccount',
+  FormIntegration: 'FormIntegration'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -405,7 +407,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "form" | "field" | "channel" | "submission" | "answer"
+    modelProps: "user" | "form" | "field" | "channel" | "submission" | "answer" | "connectedAccount" | "formIntegration"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -853,6 +855,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ConnectedAccount: {
+      payload: Prisma.$ConnectedAccountPayload<ExtArgs>
+      fields: Prisma.ConnectedAccountFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ConnectedAccountFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConnectedAccountPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ConnectedAccountFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConnectedAccountPayload>
+        }
+        findFirst: {
+          args: Prisma.ConnectedAccountFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConnectedAccountPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ConnectedAccountFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConnectedAccountPayload>
+        }
+        findMany: {
+          args: Prisma.ConnectedAccountFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConnectedAccountPayload>[]
+        }
+        create: {
+          args: Prisma.ConnectedAccountCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConnectedAccountPayload>
+        }
+        createMany: {
+          args: Prisma.ConnectedAccountCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ConnectedAccountCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConnectedAccountPayload>[]
+        }
+        delete: {
+          args: Prisma.ConnectedAccountDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConnectedAccountPayload>
+        }
+        update: {
+          args: Prisma.ConnectedAccountUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConnectedAccountPayload>
+        }
+        deleteMany: {
+          args: Prisma.ConnectedAccountDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ConnectedAccountUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ConnectedAccountUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConnectedAccountPayload>[]
+        }
+        upsert: {
+          args: Prisma.ConnectedAccountUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ConnectedAccountPayload>
+        }
+        aggregate: {
+          args: Prisma.ConnectedAccountAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateConnectedAccount>
+        }
+        groupBy: {
+          args: Prisma.ConnectedAccountGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ConnectedAccountGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ConnectedAccountCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ConnectedAccountCountAggregateOutputType> | number
+        }
+      }
+    }
+    FormIntegration: {
+      payload: Prisma.$FormIntegrationPayload<ExtArgs>
+      fields: Prisma.FormIntegrationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.FormIntegrationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FormIntegrationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.FormIntegrationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FormIntegrationPayload>
+        }
+        findFirst: {
+          args: Prisma.FormIntegrationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FormIntegrationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.FormIntegrationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FormIntegrationPayload>
+        }
+        findMany: {
+          args: Prisma.FormIntegrationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FormIntegrationPayload>[]
+        }
+        create: {
+          args: Prisma.FormIntegrationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FormIntegrationPayload>
+        }
+        createMany: {
+          args: Prisma.FormIntegrationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.FormIntegrationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FormIntegrationPayload>[]
+        }
+        delete: {
+          args: Prisma.FormIntegrationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FormIntegrationPayload>
+        }
+        update: {
+          args: Prisma.FormIntegrationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FormIntegrationPayload>
+        }
+        deleteMany: {
+          args: Prisma.FormIntegrationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.FormIntegrationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.FormIntegrationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FormIntegrationPayload>[]
+        }
+        upsert: {
+          args: Prisma.FormIntegrationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FormIntegrationPayload>
+        }
+        aggregate: {
+          args: Prisma.FormIntegrationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFormIntegration>
+        }
+        groupBy: {
+          args: Prisma.FormIntegrationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FormIntegrationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.FormIntegrationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FormIntegrationCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -910,6 +1060,8 @@ export const FormScalarFieldEnum = {
   title: 'title',
   description: 'description',
   published: 'published',
+  isActive: 'isActive',
+  expiresAt: 'expiresAt',
   userId: 'userId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -966,6 +1118,31 @@ export const AnswerScalarFieldEnum = {
 } as const
 
 export type AnswerScalarFieldEnum = (typeof AnswerScalarFieldEnum)[keyof typeof AnswerScalarFieldEnum]
+
+
+export const ConnectedAccountScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  type: 'type',
+  label: 'label',
+  config: 'config',
+  createdAt: 'createdAt'
+} as const
+
+export type ConnectedAccountScalarFieldEnum = (typeof ConnectedAccountScalarFieldEnum)[keyof typeof ConnectedAccountScalarFieldEnum]
+
+
+export const FormIntegrationScalarFieldEnum = {
+  id: 'id',
+  formId: 'formId',
+  connectedAccountId: 'connectedAccountId',
+  enabled: 'enabled',
+  autoSend: 'autoSend',
+  settings: 'settings',
+  createdAt: 'createdAt'
+} as const
+
+export type FormIntegrationScalarFieldEnum = (typeof FormIntegrationScalarFieldEnum)[keyof typeof FormIntegrationScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1176,6 +1353,8 @@ export type GlobalOmitConfig = {
   channel?: Prisma.ChannelOmit
   submission?: Prisma.SubmissionOmit
   answer?: Prisma.AnswerOmit
+  connectedAccount?: Prisma.ConnectedAccountOmit
+  formIntegration?: Prisma.FormIntegrationOmit
 }
 
 /* Types for Logging */

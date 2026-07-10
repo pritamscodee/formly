@@ -2,12 +2,10 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 28 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.55, delay, ease: [0.25, 0.1, 0.25, 1] as const },
-});
+import {
+  MessageCircle2, Grid, Chart2, LinkCircle,
+  Download, Envelope, CheckCircle,
+} from "reicon-react";
 
 function MiniBarChart() {
   const bars = [35, 55, 42, 78, 60, 90, 70, 82];
@@ -46,9 +44,9 @@ function MiniBarChart() {
 
 function ChatBubbles() {
   const msgs = [
-    { text: "What's your biggest challenge?", dir: "left" },
-    { text: "Finding quality candidates ✓", dir: "right" },
-    { text: "Got it! One more question…", dir: "left" },
+    { text: "What's your biggest challenge?", dir: "left" as const },
+    { text: "Finding quality candidates ✓", dir: "right" as const },
+    { text: "Got it! One more question…", dir: "left" as const },
   ];
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 16 }}>
@@ -112,6 +110,75 @@ function FieldTypes() {
   );
 }
 
+function ChannelCards() {
+  const channels = [
+    { name: "Gmail", color: "#EA4335" },
+    { name: "WhatsApp", color: "#25D366" },
+    { name: "QR Code", color: "#17171c" },
+  ];
+  return (
+    <div style={{ display: "flex", gap: 6, marginTop: 16, flexWrap: "wrap" }}>
+      {channels.map((ch, i) => (
+        <motion.div
+          key={ch.name}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 + i * 0.1 }}
+          style={{
+            padding: "6px 12px",
+            borderRadius: 6,
+            border: "1px solid #e5e7eb",
+            background: "#fff",
+            fontSize: 11,
+            fontWeight: 500,
+            color: "#17171c",
+            display: "flex",
+            alignItems: "center",
+            gap: 6,
+          }}
+        >
+          <span style={{ width: 6, height: 6, borderRadius: "50%", background: ch.color }} />
+          {ch.name}
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
+function ExportCards() {
+  const formats = [
+    { label: "CSV", desc: "Spreadsheet" },
+    { label: "PDF", desc: "Report" },
+  ];
+  return (
+    <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
+      {formats.map((f, i) => (
+        <motion.div
+          key={f.label}
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 + i * 0.1 }}
+          style={{
+            padding: "10px 16px",
+            borderRadius: 6,
+            border: "1px solid #e5e7eb",
+            background: "#fff",
+            fontSize: 12,
+            fontWeight: 500,
+            color: "#17171c",
+            lineHeight: 1.4,
+          }}
+        >
+          <div style={{ fontSize: 16, fontWeight: 600 }}>{f.label}</div>
+          <div style={{ fontSize: 10, color: "#93939f" }}>{f.desc}</div>
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
 type FeatureCardData = {
   tag: string;
   title: string;
@@ -123,73 +190,51 @@ type FeatureCardData = {
 
 const FEATURES: FeatureCardData[] = [
   {
-    tag: "Builder",
-    title: "Drag & drop form builder",
-    desc: "Add, reorder, and customise fields visually. What you see is exactly what respondents get.",
-    wide: false,
-    icon: (
-      <svg width={20} height={20} fill="none" viewBox="0 0 24 24" stroke="#17171c" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
-      </svg>
-    ),
-  },
-  {
     tag: "Conversation",
     title: "One question at a time",
-    desc: "Typeform-inspired flow shows a single question per step. Completion rates jump up to 3× versus traditional forms.",
+    desc: "Show a single focused question per step with animated transitions. Respondents stay engaged and completion rates jump — no overwhelming page-long forms.",
     wide: true,
     decoration: <ChatBubbles />,
-    icon: (
-      <svg width={20} height={20} fill="none" viewBox="0 0 24 24" stroke="#17171c" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
-      </svg>
-    ),
+    icon: <MessageCircle2 size={20} color="#17171c" />,
+  },
+  {
+    tag: "Builder",
+    title: "Drag & drop form builder",
+    desc: "Add, reorder, and customise 14 field types visually — from short text and ratings to dropdowns and file uploads. Auto-saves as you build.",
+    wide: false,
+    decoration: <FieldTypes />,
+    icon: <Grid size={20} color="#17171c" />,
   },
   {
     tag: "Analytics",
     title: "Real-time response tracking",
-    desc: "Beautiful charts, completion funnel, drop-off analysis — all updating live as responses come in.",
+    desc: "See answers aggregated in bar charts per field, filter by distribution channel, and drill into individual submissions — all updating live.",
     wide: false,
     decoration: <MiniBarChart />,
-    icon: (
-      <svg width={20} height={20} fill="none" viewBox="0 0 24 24" stroke="#17171c" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-      </svg>
-    ),
+    icon: <Chart2 size={20} color="#17171c" />,
   },
   {
-    tag: "Fields",
-    title: "14 question types",
-    desc: "Short text, long text, multiple choice, rating, NPS, file upload, date, dropdown, and more.",
+    tag: "Distribution",
+    title: "Channel tracking & QR codes",
+    desc: "Create tracked distribution channels — WhatsApp, Email, Zoom, or custom. Each gets a unique link and QR code so you know exactly where responses come from.",
     wide: false,
-    decoration: <FieldTypes />,
-    icon: (
-      <svg width={20} height={20} fill="none" viewBox="0 0 24 24" stroke="#17171c" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
-      </svg>
-    ),
-  },
-  {
-    tag: "Team",
-    title: "Collaborate with your team",
-    desc: "Share forms with teammates, assign roles, and manage responses together in one workspace.",
-    wide: false,
-    icon: (
-      <svg width={20} height={20} fill="none" viewBox="0 0 24 24" stroke="#17171c" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-      </svg>
-    ),
+    decoration: <ChannelCards />,
+    icon: <LinkCircle size={20} color="#17171c" />,
   },
   {
     tag: "Export",
-    title: "Export & API",
-    desc: "Download CSV / JSON anytime or connect your stack via the REST API. Your data, always portable.",
+    title: "CSV & PDF export",
+    desc: "Download all responses as a formatted CSV spreadsheet or a styled PDF report anytime. Your data, always portable — no lock-in.",
     wide: false,
-    icon: (
-      <svg width={20} height={20} fill="none" viewBox="0 0 24 24" stroke="#17171c" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-      </svg>
-    ),
+    decoration: <ExportCards />,
+    icon: <Download size={20} color="#17171c" />,
+  },
+  {
+    tag: "Integrations",
+    title: "Gmail & WhatsApp auto-send",
+    desc: "Connect your Gmail or WhatsApp Business account once, then enable auto-send per form. Responses are delivered as CSV/PDF attachments the moment they come in.",
+    wide: false,
+    icon: <Envelope size={20} color="#17171c" />,
   },
 ];
 
@@ -248,7 +293,7 @@ const STATS = [
   { value: "3×", label: "Higher completion" },
   { value: "14", label: "Field types" },
   { value: "60s", label: "To first form" },
-  { value: "∞", label: "Free responses" },
+  { value: "2", label: "Integrations" },
 ];
 
 export function FeaturesSection() {
@@ -259,6 +304,7 @@ export function FeaturesSection() {
 
   return (
     <section
+      className="lp-features-section"
       style={{
         background: "#faf9f5",
         padding: "100px 0 88px",
@@ -282,12 +328,13 @@ export function FeaturesSection() {
             <span style={{ color: "#ff7759" }}>actually want</span> to fill out
           </h2>
           <p className="lp-body-large" style={{ color: "#616161", maxWidth: 480 }}>
-            Formly brings together Typeform-style conversation design with
-            powerful analytics — in a builder anyone can use.
+            Formly brings together conversational form design with
+            powerful analytics and built-in integrations — in a builder anyone can use.
           </p>
         </motion.div>
 
         <div
+          className="lp-features-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
@@ -304,6 +351,7 @@ export function FeaturesSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={statsInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.2 }}
+          className="lp-stats-grid"
           style={{
             marginTop: 60,
             display: "grid",

@@ -115,7 +115,7 @@ export function AppNav() {
           padding: "0 24px",
         }}
       >
-        <Link href="/forms" style={{ display: "flex", alignItems: "center", gap: 8, textDecoration: "none" }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 8, textDecoration: "none" }}>
           <div
             style={{
               width: 24,

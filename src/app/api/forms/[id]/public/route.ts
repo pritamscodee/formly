@@ -17,6 +17,18 @@ export async function GET(
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
 
+    if (!form.isActive) {
+      return NextResponse.json({ error: "Form is no longer accepting responses" }, { status: 403 });
+    }
+
+    if (form.expiresAt && new Date(form.expiresAt).getTime() <= Date.now()) {
+      await prisma.form.update({
+        where: { id },
+        data: { isActive: false },
+      });
+      return NextResponse.json({ error: "Form has expired" }, { status: 403 });
+    }
+
     return NextResponse.json(form);
   } catch (error) {
     console.error("GET /api/forms/[id]/public error:", error);

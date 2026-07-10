@@ -25,6 +25,8 @@ interface FormListItem {
   title: string;
   description: string;
   published: boolean;
+  isActive: boolean;
+  expiresAt: string | null;
   createdAt: string;
   updatedAt: string;
   _count: { submissions: number };
@@ -88,6 +90,9 @@ export default function FormsPage() {
             <span className="text-sm font-medium tracking-tight text-foreground">Formly</span>
           </Link>
           <div className="flex items-center gap-3">
+            <Link href="/documents" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              Documents
+            </Link>
             <span className="text-xs text-muted-foreground">
               {forms.length} form{forms.length !== 1 ? "s" : ""}
             </span>
@@ -129,16 +134,24 @@ export default function FormsPage() {
                     <div className="flex items-center gap-2">
                       <div
                         className={`size-2 rounded-full ${
-                          form.published ? "bg-emerald-500" : "bg-muted-foreground/30"
+                          !form.isActive
+                            ? "bg-red-500"
+                            : form.published
+                              ? "bg-emerald-500"
+                              : "bg-muted-foreground/30"
                         }`}
                       />
                       <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-                        {form.published ? "Published" : "Draft"}
+                        {!form.isActive
+                          ? "Expired"
+                          : form.published
+                            ? "Published"
+                            : "Draft"}
                       </span>
                     </div>
                     <div className="flex gap-1">
                       <Link href={`/forms/${form.id}/edit`} title="Edit" className="inline-flex size-6 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground">
-                        <HugeiconsIcon icon={EditIcon} size={14} color="currentColor" strokeWidth={1.5} />
+                                <HugeiconsIcon icon={EditIcon} size={14} color="currentColor" strokeWidth={1.5} />
                       </Link>
                       {form.published && (
                         <ShareDialog
@@ -174,6 +187,11 @@ export default function FormsPage() {
                 </CardHeader>
                 <CardFooter className="flex items-center gap-4 text-xs text-muted-foreground">
                   <span>{form._count.submissions} response{form._count.submissions !== 1 ? "s" : ""}</span>
+                  {form.expiresAt && (
+                    <span className={form.isActive ? "text-emerald-600" : "text-red-500"}>
+                      {form.isActive ? "Expires" : "Expired"} {new Date(form.expiresAt).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                    </span>
+                  )}
                   <span>Updated {new Date(form.updatedAt).toLocaleDateString()}</span>
                 </CardFooter>
               </Card>

@@ -193,13 +193,6 @@ function FormMockup() {
   );
 }
 
-const LOGOS = [
-  "Notion", "Stripe", "Linear", "Vercel", "Figma",
-  "Slack", "Airtable", "Loom", "Retool", "Supabase",
-  "Notion", "Stripe", "Linear", "Vercel", "Figma",
-  "Slack", "Airtable", "Loom", "Retool", "Supabase",
-];
-
 function DotGrid() {
   return (
     <div
@@ -318,49 +311,6 @@ export function HeroSection() {
         >
           <FormMockup />
         </motion.div>
-      </div>
-
-      <div
-        style={{
-          marginTop: 80,
-          borderTop: "1px solid #e5e7eb",
-          padding: "36px 0",
-          overflow: "hidden",
-        }}
-      >
-        <p
-          className="lp-mono-label"
-          style={{ textAlign: "center", marginBottom: 24, fontSize: 11, color: "#93939f" }}
-        >
-          Trusted by teams at
-        </p>
-        <div
-          style={{
-            width: "100%",
-            overflow: "hidden",
-            maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-            WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-          }}
-        >
-          <div className="lp-marquee" style={{ display: "flex", gap: 64, width: "max-content" }}>
-            {LOGOS.map((name, i) => (
-              <span
-                key={i}
-                style={{
-                  fontSize: 13,
-                  fontWeight: 600,
-                  color: "#c4c4cc",
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                  flexShrink: 0,
-                  userSelect: "none",
-                }}
-              >
-                {name}
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
+import { CheckCircle } from "reicon-react";
 
 const STEPS = [
   {
@@ -122,7 +123,7 @@ const QUOTES = [
     initials: "SK",
   },
   {
-    quote: "We switched from Typeform and never looked back. Better analytics and the free plan covers everything we need.",
+    quote: "We switched to Formly and never looked back. Better analytics and the free plan covers everything we need.",
     author: "Marcus T.",
     role: "Product Lead, Buildco",
     initials: "MT",
@@ -333,9 +334,7 @@ function FinalCTA() {
                 color: "rgba(255,255,255,0.4)",
               }}
             >
-              <svg width={12} height={12} viewBox="0 0 12 12" fill="none">
-                <path d="M2 6l3 3 5-5" stroke="rgba(255,255,255,0.5)" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <CheckCircle size={12} color="rgba(255,255,255,0.5)" />
               {t}
             </span>
           ))}

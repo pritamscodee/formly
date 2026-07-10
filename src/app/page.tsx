@@ -10,12 +10,16 @@ import { SketchBackground } from "@/components/sketch-background";
 
 function LandingNav() {
   const [scrolled, setScrolled] = useState(false);
+  const [signedIn, setSignedIn] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener("scroll", onScroll, { passive: true });
+    fetch("/api/auth/session").then((r) => r.json()).then((s) => { if (s?.user) setSignedIn(true); }).catch(() => {});
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const logoHref = signedIn ? "/forms" : "/";
 
   return (
     <header
@@ -45,7 +49,7 @@ function LandingNav() {
           justifyContent: "space-between",
         }}
       >
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
+        <Link href={logoHref} style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
           <div
             style={{
               width: 28,
@@ -91,17 +95,47 @@ function LandingNav() {
         `}</style>
 
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <Link
-            href="/login"
-            style={{ color: "#616161", fontSize: 14, fontWeight: 400, textDecoration: "none", padding: "8px 4px" }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "#17171c")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "#616161")}
-          >
-            Log in
-          </Link>
-          <Link href="/register" className="lp-btn-primary lp-beam-btn" style={{ padding: "9px 22px", fontSize: 14 }}>
-            Get started free
-          </Link>
+          {signedIn ? (
+            <Link
+              href="/forms"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                color: "#17171c",
+                fontSize: 14,
+                fontWeight: 500,
+                textDecoration: "none",
+                padding: "8px 14px",
+                borderRadius: 8,
+                border: "1px solid #e5e7eb",
+                background: "#fff",
+                transition: "background 0.15s, border-color 0.15s",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = "#f5f5f5"; e.currentTarget.style.borderColor = "#d1d5db"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.borderColor = "#e5e7eb"; }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+                <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              </svg>
+              Go to dashboard
+            </Link>
+          ) : (
+            <>
+              <Link
+                href="/login"
+                style={{ color: "#616161", fontSize: 14, fontWeight: 400, textDecoration: "none", padding: "8px 4px" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#17171c")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#616161")}
+              >
+                Log in
+              </Link>
+              <Link href="/register" className="lp-btn-primary lp-beam-btn" style={{ padding: "9px 22px", fontSize: 14 }}>
+                Get started free
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </header>

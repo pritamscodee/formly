@@ -199,6 +199,7 @@ export type UserWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   forms?: Prisma.FormListRelationFilter
+  connectedAccounts?: Prisma.ConnectedAccountListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -210,6 +211,7 @@ export type UserOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   forms?: Prisma.FormOrderByRelationAggregateInput
+  connectedAccounts?: Prisma.ConnectedAccountOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -224,6 +226,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   forms?: Prisma.FormListRelationFilter
+  connectedAccounts?: Prisma.ConnectedAccountListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -261,6 +264,7 @@ export type UserCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   forms?: Prisma.FormCreateNestedManyWithoutUserInput
+  connectedAccounts?: Prisma.ConnectedAccountCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -272,6 +276,7 @@ export type UserUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   forms?: Prisma.FormUncheckedCreateNestedManyWithoutUserInput
+  connectedAccounts?: Prisma.ConnectedAccountUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -283,6 +288,7 @@ export type UserUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   forms?: Prisma.FormUpdateManyWithoutUserNestedInput
+  connectedAccounts?: Prisma.ConnectedAccountUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -294,6 +300,7 @@ export type UserUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   forms?: Prisma.FormUncheckedUpdateManyWithoutUserNestedInput
+  connectedAccounts?: Prisma.ConnectedAccountUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -387,6 +394,20 @@ export type UserUpdateOneRequiredWithoutFormsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutFormsInput, Prisma.UserUpdateWithoutFormsInput>, Prisma.UserUncheckedUpdateWithoutFormsInput>
 }
 
+export type UserCreateNestedOneWithoutConnectedAccountsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutConnectedAccountsInput, Prisma.UserUncheckedCreateWithoutConnectedAccountsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutConnectedAccountsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutConnectedAccountsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutConnectedAccountsInput, Prisma.UserUncheckedCreateWithoutConnectedAccountsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutConnectedAccountsInput
+  upsert?: Prisma.UserUpsertWithoutConnectedAccountsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutConnectedAccountsInput, Prisma.UserUpdateWithoutConnectedAccountsInput>, Prisma.UserUncheckedUpdateWithoutConnectedAccountsInput>
+}
+
 export type UserCreateWithoutFormsInput = {
   id?: string
   name?: string | null
@@ -395,6 +416,7 @@ export type UserCreateWithoutFormsInput = {
   image?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  connectedAccounts?: Prisma.ConnectedAccountCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutFormsInput = {
@@ -405,6 +427,7 @@ export type UserUncheckedCreateWithoutFormsInput = {
   image?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  connectedAccounts?: Prisma.ConnectedAccountUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutFormsInput = {
@@ -431,6 +454,7 @@ export type UserUpdateWithoutFormsInput = {
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  connectedAccounts?: Prisma.ConnectedAccountUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutFormsInput = {
@@ -441,6 +465,67 @@ export type UserUncheckedUpdateWithoutFormsInput = {
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  connectedAccounts?: Prisma.ConnectedAccountUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutConnectedAccountsInput = {
+  id?: string
+  name?: string | null
+  email: string
+  password?: string | null
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  forms?: Prisma.FormCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutConnectedAccountsInput = {
+  id?: string
+  name?: string | null
+  email: string
+  password?: string | null
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  forms?: Prisma.FormUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutConnectedAccountsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutConnectedAccountsInput, Prisma.UserUncheckedCreateWithoutConnectedAccountsInput>
+}
+
+export type UserUpsertWithoutConnectedAccountsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutConnectedAccountsInput, Prisma.UserUncheckedUpdateWithoutConnectedAccountsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutConnectedAccountsInput, Prisma.UserUncheckedCreateWithoutConnectedAccountsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutConnectedAccountsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutConnectedAccountsInput, Prisma.UserUncheckedUpdateWithoutConnectedAccountsInput>
+}
+
+export type UserUpdateWithoutConnectedAccountsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  forms?: Prisma.FormUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutConnectedAccountsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  forms?: Prisma.FormUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -450,10 +535,12 @@ export type UserUncheckedUpdateWithoutFormsInput = {
 
 export type UserCountOutputType = {
   forms: number
+  connectedAccounts: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   forms?: boolean | UserCountOutputTypeCountFormsArgs
+  connectedAccounts?: boolean | UserCountOutputTypeCountConnectedAccountsArgs
 }
 
 /**
@@ -473,6 +560,13 @@ export type UserCountOutputTypeCountFormsArgs<ExtArgs extends runtime.Types.Exte
   where?: Prisma.FormWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountConnectedAccountsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ConnectedAccountWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -483,6 +577,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   createdAt?: boolean
   updatedAt?: boolean
   forms?: boolean | Prisma.User$formsArgs<ExtArgs>
+  connectedAccounts?: boolean | Prisma.User$connectedAccountsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -519,6 +614,7 @@ export type UserSelectScalar = {
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "password" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   forms?: boolean | Prisma.User$formsArgs<ExtArgs>
+  connectedAccounts?: boolean | Prisma.User$connectedAccountsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -528,6 +624,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   name: "User"
   objects: {
     forms: Prisma.$FormPayload<ExtArgs>[]
+    connectedAccounts: Prisma.$ConnectedAccountPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -932,6 +1029,7 @@ readonly fields: UserFieldRefs;
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   forms<T extends Prisma.User$formsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$formsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FormPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  connectedAccounts<T extends Prisma.User$connectedAccountsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$connectedAccountsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ConnectedAccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1382,6 +1480,30 @@ export type User$formsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
   take?: number
   skip?: number
   distinct?: Prisma.FormScalarFieldEnum | Prisma.FormScalarFieldEnum[]
+}
+
+/**
+ * User.connectedAccounts
+ */
+export type User$connectedAccountsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ConnectedAccount
+   */
+  select?: Prisma.ConnectedAccountSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ConnectedAccount
+   */
+  omit?: Prisma.ConnectedAccountOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ConnectedAccountInclude<ExtArgs> | null
+  where?: Prisma.ConnectedAccountWhereInput
+  orderBy?: Prisma.ConnectedAccountOrderByWithRelationInput | Prisma.ConnectedAccountOrderByWithRelationInput[]
+  cursor?: Prisma.ConnectedAccountWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ConnectedAccountScalarFieldEnum | Prisma.ConnectedAccountScalarFieldEnum[]
 }
 
 /**

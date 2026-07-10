@@ -47,3 +47,13 @@ export type Submission = Prisma.SubmissionModel
  * 
  */
 export type Answer = Prisma.AnswerModel
+/**
+ * Model ConnectedAccount
+ * 
+ */
+export type ConnectedAccount = Prisma.ConnectedAccountModel
+/**
+ * Model FormIntegration
+ * 
+ */
+export type FormIntegration = Prisma.FormIntegrationModel
