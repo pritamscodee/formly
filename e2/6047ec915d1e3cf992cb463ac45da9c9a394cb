@@ -1,0 +1,110 @@
+src/app/api/forms/[id]/publish/route.ts
+  s_28f946a52af0de::t_1b77500eccd263 10
+prisma/schema.prisma
+  s_08b97e5805c843::t_cb5f896e4929e3 28-30,38-49,53,57,59-60,62
+src/app/api/integrations/gmail/connect/route.ts
+  s_28f946a52af0de::t_a50d775c1669ff 7
+src/app/api/forms/[id]/route.ts
+  s_28f946a52af0de::t_f3a0c0b8640b17 10,38,109
+src/app/api/forms/[id]/uploads/route.ts
+  s_28f946a52af0de::t_809528bc79a1f2 10
+src/app/api/integrations/route.ts
+  s_28f946a52af0de::t_ad70f9e23815d8 7,33
+src/app/api/forms/route.ts
+  s_28f946a52af0de::t_7ecd73e3f5cebf 7,27
+src/app/register/page.tsx
+  s_08b97e5805c843::t_1aa61b91aca85b 41-53,56,59-60
+  s_08b97e5805c843::t_6d3ec95c38432b 183
+src/generated/prisma/models/Account.ts
+  s_08b97e5805c843::t_a7b18615228956 23-24,29-36,40-46,48-49,55-61,63-64,70-76,78-79,84-91,95-101,103-104,110-116,118-119,125-131,133-134,173-184,218-219,227-233,235-236,238-239,265-271,273-274,281-287,289-290,296,301-307,309-310,312,317-323,325-326,328,331,340-346,348-349,354-360,362-363,370-376,378-379,384-390,392-393,400-406,408-409,415-421,423-424,429-435,437-438,444-450,452-453,466-470,474-480,482-487,493-499,501-502,508-514,516-521,566-573,576-582,584-585,590-596,598-599,634-640,642-643,648-654,656-657,662-668,670-671,676-682,684-685,690-696,698-699,707-713,715-716,723-729,731-732,739-745,747-748,755-761,763-764,767,786-792,794-795,1222-1228,1230-1231
+src/app/api/integrations/[id]/route.ts
+  s_28f946a52af0de::t_77beb2950d1f0d 10
+src/app/api/submissions/[id]/route.ts
+  s_28f946a52af0de::t_f58e612ff0bf03 10
+src/app/api/documents/route.ts
+  s_28f946a52af0de::t_b3ae98e16f5580 7
+src/components/nav.tsx
+  s_08b97e5805c843::t_c9afd3d19d1210 138
+src/generated/prisma/internal/prismaNamespace.ts
+  s_08b97e5805c843::t_a7b18615228956 390,413,639-641,644-645,648-649,652-653,656-657,660-661,664-665,668,672-673,676-677,680-681,684,688,692-693,696-697,700-701,704-705,708-709,1286,1288,1297-1303,1305-1306,1312,1314-1315,1318,1470,1472,1477,1479,1484,1486,1616
+src/generated/prisma/commonInputTypes.ts
+  s_08b97e5805c843::t_a7b18615228956 138-164,339-364
+  s_08b97e5805c843::t_e39f83ba881800 365
+src/app/api/forms/[id]/timer/route.ts
+  s_28f946a52af0de::t_6ac625638c598e 10
+src/components/providers.tsx
+  s_08b97e5805c843::t_20357c63804e1a 1-7
+src/app/api/submissions/route.ts
+  s_28f946a52af0de::t_4a9f7fc7b802f4 118
+src/lib/auth-client.ts
+  s_08b97e5805c843::t_d8da633a06578d 1,3-9
+src/generated/prisma/models/VerificationToken.ts
+  s_08b97e5805c843::t_a7b18615228956 1-1099
+src/app/login/page.tsx
+  s_08b97e5805c843::t_c9da4128eec033 39,42,45
+  s_08b97e5805c843::t_0c48a2abeaf76f 150
+src/app/api/forms/[id]/integrations/route.ts
+  s_28f946a52af0de::t_dda65355bb4378 10,54,141
+src/generated/prisma/client.ts
+  s_08b97e5805c843::t_a7b18615228956 60,63
+src/app/layout.tsx
+  s_08b97e5805c843::t_75850cb144a885 30-34
+  s_08b97e5805c843::t_6edff2016e7e62 5
+src/app/forms/page.tsx
+  s_08b97e5805c843::t_e440c26dd21897 100
+src/generated/prisma/models/Session.ts
+  s_08b97e5805c843::t_a7b18615228956 29,31,36,38,43,45,52,54,59,61,66,68,146,148,174,176,182,184,190,195,197,201,203,214,216,221-222,228,230,235-236,242,244,249,251,256-257,262,264,279,281,286,288,293,295,342-343,348-349,383,385,390-391,396-397,402-403,408-409,416,418,424,426,432,434,440,442,445,463,465,891,893
+src/app/api/auth/register/route.ts
+  s_08b97e5805c843::t_4bc1b54fb5f20b 1-33
+package.json
+  s_08b97e5805c843::t_54dd5e0f978d9b 13,39
+src/app/api/auth/[...nextauth]/route.ts
+  s_08b97e5805c843::t_3cff2b3ac5d278 1-3
+src/generated/prisma/internal/class.ts
+  s_08b97e5805c843::t_a7b18615228956 23,35,37-38,222,225-226,229
+src/generated/prisma/internal/prismaNamespaceBrowser.ts
+  s_08b97e5805c843::t_a7b18615228956 57,99,101,110-116,118-119,125,127-128,131
+src/generated/prisma/models.ts
+  s_08b97e5805c843::t_a7b18615228956 14
+src/lib/auth.ts
+  s_08b97e5805c843::t_c181e7ee3115ba 1-4,6,8-12,14-61
+src/generated/prisma/browser.ts
+  s_08b97e5805c843::t_a7b18615228956 36,39
+src/app/api/forms/[id]/channels/route.ts
+  s_28f946a52af0de::t_fe48407b9802e3 11,44
+src/app/api/forms/[id]/channels/[channelId]/route.ts
+  s_28f946a52af0de::t_bf52776512fdc2 10
+src/app/api/forms/[id]/integrations/[integrationId]/route.ts
+  s_28f946a52af0de::t_5ccd014575fe76 10
+package-lock.json
+  s_08b97e5805c843::t_e1d18d60237614 12,38,79-119,2223-2229,9831-9857,9980-9988,10705-10724
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.11",
+  "base_commit_sha": "e26047ec915d1e3cf992cb463ac45da9c9a394cb",
+  "prompts": {},
+  "humans": {
+    "h_8dfeaef981cbe6": {
+      "author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_08b97e5805c843": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0b238cce4ffedme4Hn7kI9bVcF",
+        "model": "unknown"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    },
+    "s_28f946a52af0de": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0b212e461ffeuW63dFhqDANoic",
+        "model": "unknown"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  }
+}
