@@ -1,0 +1,230 @@
+src/app/api/integrations/gmail/connect/route.ts
+  s_e287d1fd163681::t_e125c49297361b 1-32
+src/app/api/proxy-file/route.ts
+  s_e287d1fd163681::t_4d8837747fd103 36-37,42-43,66,68,70,80-84,89-99
+  s_e287d1fd163681::t_6ef6e8081ae00d 2-9,25-26,32,35,38,41,44-65,74-79
+  s_e287d1fd163681::t_18c264c9cfb41d 20-23,27-31,33-34,71
+  s_e287d1fd163681::t_df9b794ea23aa3 1,10-19,24,39-40,67,69,72-73,85-88,100
+src/app/forms/[id]/submissions/page.tsx
+  s_e287d1fd163681::t_33d6916b6c53ae 259
+  s_e287d1fd163681::t_efa98271d867b6 8-9
+  s_e287d1fd163681::t_c87f0efee2c313 250
+  s_e287d1fd163681::t_124ab815ab4f8c 12
+  s_e287d1fd163681::t_d66a904c378836 208-209
+  s_e287d1fd163681::t_dab619a7d11ea7 174
+  s_e287d1fd163681::t_cd7e9da68a2746 290
+  s_e287d1fd163681::t_0d86c44f56f4ce 6-7,10,14-20,73,106,112-113,126-130,183,226,236,244-249,251-252,264-289,291-331,334-362,364-399,401-431,433-436,439-455,457-490
+  s_e287d1fd163681::t_840c214f44e04f 400
+  s_e287d1fd163681::t_731e6e97b6a32c 1-5,11,13,21-72,74-105,107-111,114-125,131-173,175-182,184-207,210-225,227-235,237-243,253-258,260-263,332-333,363,432,437-438,456,491-493
+src/app/api/nutrient-session/route.ts
+  s_e287d1fd163681::t_1059c0667f3ccc 1-34
+src/lib/gmail.ts
+  s_e287d1fd163681::t_cf2b8448733f76 1-101
+src/app/icon.svg
+  s_e287d1fd163681::t_e4a684673067c0 1-4
+src/generated/prisma/models/FormIntegration.ts
+  s_e287d1fd163681::t_2e9bbea63a81f1 1-1553
+src/components/PdfViewer.tsx
+  s_e287d1fd163681::t_5da53378a079ed 3,22,24,31,49,61,63-64,66,68-71
+  s_e287d1fd163681::t_d5a74e3fc4c985 30,32-35,41-42,67
+  s_e287d1fd163681::t_a4f2b1d36f32ad 39,43-44,51
+  s_e287d1fd163681::t_59af0331291064 40
+  s_e287d1fd163681::t_7d7f0aa3869709 1-2,4-10,13-15,20,60,72-73,78-79
+  s_e287d1fd163681::t_1437ee35cd6877 11,16-17,21,38,46-47,50,52,59,62,65,74-77
+  s_e287d1fd163681::t_1bc570eccfdcfd 12,18-19,23,25-29,36-37,45,48,53-58
+src/lib/data-analysis.ts
+  s_e287d1fd163681::t_6415cfa7ebe295 1-236
+src/lib/whatsapp.ts
+  s_e287d1fd163681::t_d8ca9be86dc269 1-98
+src/lib/export.ts
+  s_e287d1fd163681::t_eb939c87295694 1-150
+src/app/documents/page.tsx
+  s_e287d1fd163681::t_667e4f5d20406c 6
+  s_e287d1fd163681::t_6af5d42c60769d 131
+  s_e287d1fd163681::t_8482b49bf0732a 1-5,7-130,132-304
+src/components/FormTimer.tsx
+  s_e287d1fd163681::t_83642c8ff12bfe 1-3,12-40,42-44,51-56,59,63-65,67-69,76,80-82,85-88,90,107-111,124,126-128,142-143,151,161,196,208,225,239-240,244,246,251-252
+  s_e287d1fd163681::t_394b1ad7e6ae7b 153,159-160,165,171,174,186-187,203,227,236,245
+  s_e287d1fd163681::t_4a8e8af94323d7 166
+  s_e287d1fd163681::t_63c3b19992c366 146-148,162-164,167,172-173,175-185,188-195,197-202,204-207,209-211,213-224,226,228-235,237-238,241-243,247-250
+  s_e287d1fd163681::t_23f51fd108793d 4-11,41,45-50,57-58,60-62,66,70-75,77-79,83-84,89,91-106,112-123,125,129-141,144-145,149-150,152,154-158,168-170,212
+src/app/forms/[id]/uploads/page.tsx
+  s_e287d1fd163681::t_37bdacafce9abd 148,151,154
+  s_e287d1fd163681::t_df4739149c3958 6
+  s_e287d1fd163681::t_02c6e9e86dc1eb 7
+  s_e287d1fd163681::t_ad9c5c6b562f42 8
+  s_e287d1fd163681::t_572e98b3dbe7ae 41,68-74,76-91,95,97,110,114,142,153
+  s_e287d1fd163681::t_9df0a707771232 165
+  s_e287d1fd163681::t_711c456e5eb1fe 146,158-164,167-168,171-174
+  s_e287d1fd163681::t_86a8b4f517aaf6 94,139,147,149-150,152,155,157,166,169-170,182
+  s_e287d1fd163681::t_ae1abcc3603702 1-5,9-40,42-67,75,92-93,96,98-109,111-113,115-138,140-141,143-145,156,175-181,183-186
+src/app/api/integrations/[id]/route.ts
+  s_e287d1fd163681::t_773f31c45ae9a7 1-33
+src/generated/prisma/models/ConnectedAccount.ts
+  s_e287d1fd163681::t_2e9bbea63a81f1 1-1521
+src/lib/cloudinary.ts
+  s_e287d1fd163681::t_5eb2333e6b80ec 5-6
+  s_e287d1fd163681::t_4db65f31b35961 7
+  s_e287d1fd163681::t_3e3da95329af17 1-4,8-18,45-51
+  s_e287d1fd163681::t_30bd30844cb259 19-44
+src/app/api/forms/[id]/integrations/route.ts
+  s_e287d1fd163681::t_d5ad654b1f7e44 1-192
+src/app/api/upload/route.ts
+  s_e287d1fd163681::t_418b82d2cdb287 1-21,26-27,29-44
+  s_e287d1fd163681::t_b516eef47ac75f 22-25,28
+src/app/viewer/page.tsx
+  s_e287d1fd163681::t_a6fd6a5ddebba1 1-25,27-29,31,33,35,40-41,45-49,52-115
+  s_e287d1fd163681::t_70d43c33172fbf 34,36-39,43-44
+  s_e287d1fd163681::t_ff732cb2df82fe 42
+  s_e287d1fd163681::t_e3b9aeee85abaa 26,30,32,50-51
+src/app/api/integrations/route.ts
+  s_e287d1fd163681::t_9ca8f2ef201bd3 1-71
+src/app/forms/[id]/integrations/page.tsx
+  s_e287d1fd163681::t_5de5609b236667 8,144-145,155-159,162-163,168-171,176,178-181,183-185,188-189,191,196-198,200-204,210,213-214,220-224,228,234,240,242-244,253-256,258-260,263-264,266,275-277,279-283,289-293,296-297,303,308-311,315,321,327,329-331,342-349,353,359,370-373
+  s_e287d1fd163681::t_f88dfc433f1821 6,33,88-89,116,172,186,193-195,199,205,208-209,211,215,217-219,225-227,229-231,233,235-239,241,245-251,257,261-262,267-274,278,284,286-288,294,298-302,304-307,312-314,316-320,322-326,328,332-341,350-352,354-356,358,361,366-369,374-376
+  s_e287d1fd163681::t_1830fbef39c797 1-5,10-32,34,41-54,59-60,62-71,73-87,130-131,140-143,146-149,154,161,164-167,173-175,378-381
+  s_e287d1fd163681::t_9b73c952f9a372 7,9,160,177,190,212,252,265,295
+  s_e287d1fd163681::t_3186e1f24fa575 35-40,55-58,61,72,90-115,117-129,132-139,150-153,182,187,192,206-207,216,232,285,357,360,362-365,377
+src/app/api/forms/[id]/integrations/[integrationId]/route.ts
+  s_e287d1fd163681::t_70d09250eda823 1-38
+src/app/api/integrations/callback/route.ts
+  s_e287d1fd163681::t_69ea58ca935754 31-34
+  s_e287d1fd163681::t_2c932826202b36 1-8,10-11,28-30,35,38,65,68-70,72-73
+  s_e287d1fd163681::t_4d711f225e9b94 9,12-27,36-37,39-64,66-67,71
+src/app/api/forms/[id]/timer/route.ts
+  s_e287d1fd163681::t_d9e56e1c21bcf5 1-41
+src/app/api/forms/[id]/uploads/route.ts
+  s_e287d1fd163681::t_362e403d7fee58 1-68
+src/app/api/documents/route.ts
+  s_e287d1fd163681::t_17329638576485 1-46
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/dotnet.boot.js
+  s_e287d1fd163681::t_e767bebe4645c1 1-433
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/dotnet.js
+  s_e287d1fd163681::t_a7af7e1a76e213 1-4
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/dotnet.js.map
+  s_e287d1fd163681::t_ba7c59765d18de 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/dotnet.native.js
+  s_e287d1fd163681::t_a59af2e375f3cc 1-16
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/dotnet.runtime.js
+  s_e287d1fd163681::t_03705a0db553ac 1-4
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/dotnet.runtime.js.map
+  s_e287d1fd163681::t_914270f3983a28 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/initDotnet.js
+  s_e287d1fd163681::t_04a2660df1e6b0 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/package.json
+  s_e287d1fd163681::t_132de5758dc2d4 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resourceLoader.js
+  s_e287d1fd163681::t_1f26658c34dd84 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_78-EUC-V.dat
+  s_e287d1fd163681::t_5a04a8dad0e6ff 1-3
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_78-RKSJ-V.dat
+  s_e287d1fd163681::t_42e04460f28ae6 1-2
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_78-V.dat
+  s_e287d1fd163681::t_94b55d6cf6cd23 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_78ms-RKSJ-V.dat
+  s_e287d1fd163681::t_0ea023e02bccc9 1-3
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_90ms-RKSJ-V.dat
+  s_e287d1fd163681::t_9f03afd966517b 1-2
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_90pv-RKSJ-V.dat
+  s_e287d1fd163681::t_0a0f9267af8cc1 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_Add-RKSJ-V.dat
+  s_e287d1fd163681::t_052e60ef15d9ad 1-2
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_Add-V.dat
+  s_e287d1fd163681::t_59c6a2f05f48ac 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_B5-H.dat
+  s_e287d1fd163681::t_5e00396fa4f7fd 1-9
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_B5pc-H.dat
+  s_e287d1fd163681::t_0514fde07f2bb1 1-4
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_CNS2-H.dat
+  s_e287d1fd163681::t_7523e43f5d4978 1-3
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_ETen-B5-H.dat
+  s_e287d1fd163681::t_d85c8a92a3b72f 1-4
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_EUC-V.dat
+  s_e287d1fd163681::t_9a3c266b2e74f6 1-2
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_Ext-V.dat
+  s_e287d1fd163681::t_f9734c8c85da7e 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_GB-EUC-H.dat
+  s_e287d1fd163681::t_c0a2b6adddc96d 1-2
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_GB-EUC-V.dat
+  s_e287d1fd163681::t_6127ac6f5c85b2 1-3
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_GB-V.dat
+  s_e287d1fd163681::t_93d1907d4c3dd7 1-4
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_GBK-EUC-V.dat
+  s_e287d1fd163681::t_3d6992b6f34138 1-2
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_GBK2K-V.dat
+  s_e287d1fd163681::t_f5fb301e1475be 1-3
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_GBKp-EUC-V.dat
+  s_e287d1fd163681::t_b6f325b37cd342 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_GBT-EUC-V.dat
+  s_e287d1fd163681::t_17c8a849b58b21 1-2
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_GBpc-EUC-V.dat
+  s_e287d1fd163681::t_a2a7cf9d4c0e13 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_H.dat
+  s_e287d1fd163681::t_0467b99dd66282 1-4
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_HKdla-B5-V.dat
+  s_e287d1fd163681::t_0f81c24311dd2b 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_HKdlb-B5-V.dat
+  s_e287d1fd163681::t_4cfa484a06dc8e 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_HKgccs-B5-V.dat
+  s_e287d1fd163681::t_206f84e8b85684 1-2
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_HKm314-B5-V.dat
+  s_e287d1fd163681::t_3f25ad76fd8974 1-2
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_HKm471-B5-V.dat
+  s_e287d1fd163681::t_15fa0220d15631 1-3
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_Hiragana.dat
+  s_e287d1fd163681::t_3858b2e02955e6 1-2
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_Hojo-H.dat
+  s_e287d1fd163681::t_01868c92ec5e2c 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_KSC-Johab-V.dat
+  s_e287d1fd163681::t_6892967403cb9f 1-3
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_KSCms-UHC-HW-V.dat
+  s_e287d1fd163681::t_c526f5824367da 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_KSCms-UHC-V.dat
+  s_e287d1fd163681::t_f0074373d5833c 1-3
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_KSCpc-EUC-V.dat
+  s_e287d1fd163681::t_16fb90d82402bf 1-2
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_RKSJ-V.dat
+  s_e287d1fd163681::t_66060a76b648c7 1-2
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_UniGB-UCS2-V.dat
+  s_e287d1fd163681::t_fe077f47907d56 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_UniGB-UTF16-V.dat
+  s_e287d1fd163681::t_e88c30d5e150bf 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_UniGB-UTF32-V.dat
+  s_e287d1fd163681::t_15c65a1f87f321 1-2
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_UniGB-UTF8-V.dat
+  s_e287d1fd163681::t_f81ebf7abbc2ed 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_UniJISPro-UCS2-HW-V.dat
+  s_e287d1fd163681::t_a4106f3a68c56d 1-5
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_UniKS-UTF32-V.dat
+  s_e287d1fd163681::t_d663b424d073ad 1-2
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_UniKS-UTF8-V.dat
+  s_e287d1fd163681::t_c5953f4914b018 1
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/_WP-Symbol.dat
+  s_e287d1fd163681::t_0104442ffcd070 1-3
+public/nutrient-viewer-lib/gdpicture-f2b83f15/jit/resources/list.json
+  s_e287d1fd163681::t_f1d5d0414654b1 1-232
+public/nutrient-viewer-lib/gdpicture-worker.js
+  s_e287d1fd163681::t_e7c486116ab12e 1-13
+public/nutrient-viewer-lib/npm-assets-deprecated.js
+  s_e287d1fd163681::t_132ec75de78ed2 1
+public/nutrient-viewer-lib/nutrient-viewer-1.17.0.css
+  s_e287d1fd163681::t_47fc5111f38411 1-1168
+public/nutrient-viewer-lib/nutrient-viewer-eeae1b93229f8200.wasm.js
+  s_e287d1fd163681::t_9de118184cc15b 1-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.11",
+  "base_commit_sha": "f7aa6a0b1355bfebd1feeaf9191444be5c59d191",
+  "prompts": {},
+  "sessions": {
+    "s_e287d1fd163681": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0b378e670ffeR0BpaLgR918bYh",
+        "model": "unknown"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  }
+}
