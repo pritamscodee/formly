@@ -1,0 +1,32 @@
+src/components/demo-section.tsx
+  s_cd6be183bf9771::t_430a094450c76a 17,20,26,33,63
+src/app/globals.css
+  s_cd6be183bf9771::t_856c979ec21b5b 329-424,426-427,431,442,446,466,485,492-502,504-509,521-541,549-566
+src/app/page.tsx
+  s_cd6be183bf9771::t_ae594fb86bfc20 10
+  s_cd6be183bf9771::t_a3331ee8492cde 127
+  s_cd6be183bf9771::t_04b9a0e06842bf 203
+  s_cd6be183bf9771::t_adad9b30c542bc 4,15,24-34,38-39,41-46,49-52,55-67,69-76,79-126,128-190,193-195,199-201,210-223,227-232,234,240,250,254,258,262-263,276,279-280,290-291,307,321
+src/components/cta-section.tsx
+  s_cd6be183bf9771::t_0a45b1a60bf81a 6,36,39,45,52,64,145-146,152,159,171,242,264,277,290
+src/components/hero-section.tsx
+  s_cd6be183bf9771::t_85dc538ca2a65a 6-7,21,45,48,54,70,141-143,145,218,236,262,275-276,285,289,298,307
+src/components/features-section.tsx
+  s_cd6be183bf9771::t_a7ada8c8c75b4a 7,310,314,321,356,377
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.11",
+  "base_commit_sha": "150d18f132ae135ba4e1b940acdae9d2c28e686f",
+  "prompts": {},
+  "sessions": {
+    "s_cd6be183bf9771": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0b295caaaffeKooO9Hx2n4WYcu",
+        "model": "unknown"
+      },
+      "human_author": "pritamscodee <codewithpritam29@gmail.com>"
+    }
+  }
+}
